@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>завдання 1</title>
+</head>
+<body>
+    <script>
+        // 1
+        let numberA = parseFloat(prompt('введіть число з крапкою для завдання 1 , "128.4" '));
+        let numberB = parseFloat(prompt('введіть число з крапкою для завдання 2 , "128.4" '));
+        
+        let sumAB = numberA + numberB;
+        let productAB = numberA * numberB;
+        let fractionAB = numberA / numberB;
+        
+        document.write(`Сума виразу = ${sumAB} <br>
+        <table border="1px">
+                    <tr>
+                        <th>1 значення</th>
+                        <th>2 значення</th>
+                        <th>Сума</th>
+                        <th>Добуток</th>
+                        <th>Частка</th>
+                    </tr>
+                    <tr>
+                        <th>${numberA}</th>
+                        <th>${numberB}</th>
+                        <th>${sumAB}</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>${numberA}</th>
+                        <th>${numberB}</th>
+                        <th></th>
+                        <th>${productAB}</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>${numberA}</th>
+                        <th>${numberB}</th>
+                        <th></th>
+                        <th></th>
+                        <th>${fractionAB}</th>
+                    </tr>
+                </table> `);
+        document.write(`Добуток виразу = ${productAB} <br>`);
+        document.write(`Частка виразу = ${fractionAB} <br>`);        
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lesson_2/css/style.css">
+    <title>Task 3</title>
+</head>
+<body>
+    <script>
+        let userNumber = parseInt(prompt('Введіть будь-яке число від 1-5'));
+        let userNumberTwo;
+        const min = 1, max = 5
+        let random = min + Math.floor(Math.random() * (max - min + 1));
+
+        if(userNumber === random)
+            document.write('Ура! Ви відгадали')
+        else{
+            alert('Нажаль ви не відгадали. Спробуйте ще раз задумане число було ${random}');
+            userNumberTwo = parseInt(prompt('Остання спроба, введіть будь-яке число від 1-5'));
+            if(userNumberTwo === random)
+                document.write('Ура!')
+            else
+                document.write(`Нажаль ви не відгадали. Задумане число було ${random}`);
+            }
+            document.write(`Нажаль ви не відгадали. Задумане число було ${random}`);
+
+    </script>
+</body>
+</html>
