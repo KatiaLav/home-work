@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lesson_2/css/style.css">
+    <title>Task 2</title>
+</head>
+<body>
+    <script>
+        // 2
+        const priceProduct = parseFloat(prompt('Яка ціна товару?'))
+        const amountMoney = parseFloat(prompt('Яка кількість у вас грошей?'))
+        const lottery = 4
+        let restMoney = amountMoney - priceProduct
+
+        if(amountMoney <= priceProduct)
+            document.write('Вибачте, не достатня кількість грошей')
+        else (restMoney >= lottery)
+            document.write(`У вас достатньо коштів щоб придбати лотарею. ЇЇ вартість 4грн, бажаєте спробувати удачу?`)
+
+    </script>
+</body>
+</html>
