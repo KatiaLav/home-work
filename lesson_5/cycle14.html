@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Задача 14</title>
+</head>
+<body>
+	<p>
+		Каса. Користувачу повідомляють суму, яку йому треба сплатити.
+		Користувач поступово вводить суму грошей до тих пір, поки суми не
+		буде достатньо для оплати(кожного разу повідомляти скільки ще
+		потрібно внести).
+	</p>
+	<script>
+		let totalSum = 2590
+		let restSum
+		alert(`До сплати вам нараховано ${totalSum}грн`)
+		do {
+			const rest = parseFloat(prompt(`Внесіть гроші за комуналку ${totalSum}грн`))
+			totalSum -= rest
+		} while (totalSum > 0);
+		if (totalSum < 0)
+		alert(`Ваша решта ${Math.abs(totalSum)}грн`)
+		alert('Гарного дня')
+	</script>
+</body>
+</html>
