@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Задача 11</title>
+</head>
+<body>
+	<p>
+		Знайти суму 5 непарних чисел, що знаходяться між заданими
+		користувачем числами.
+	</p>
+	<script>
+		let firstNumber = parseInt(prompt('Введіть перше значення'))
+		let twoNumber = parseInt(prompt('Введіть друге значення'))
+		let oddSum = 0
+
+		for(let i = 1; i <= 5; i++);
+		const oddRandom = firstNumber + Math.floor(Math.random() * (twoNumber - firstNumber + 1));
+
+		if(oddRandom % 2 !== 0) {
+			oddSum += oddRandom
+			i++
+		}
+		document.write(` Сума 5 непарних чисел = ${oddSum}`)
+	</script>
+</body>
+</html>

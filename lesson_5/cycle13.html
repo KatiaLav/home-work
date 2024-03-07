@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>ЗАДАЧА 13</title>
+</head>
+<body>
+	<p>
+		Морський бій. Комп'ютер випадково розташовує одинокий корабель на
+		полі за розміром N*M .Маючи К снарядів 
+		користувач намагається потопити корабель
+	</p>
+	<script>
+		const width = parseInt(prompt('Введіть ширину поля для побудови корабля'))
+		const height = parseInt(prompt('Введіть висоту поля для побудови корабля'))
+		let value = parseInt(prompt('Введіть кількість снарядів для бою в грі'))
+
+		const rowPosition = 1 + Math.floor(Math.random() * width)
+		const heightPosition = 1 + Math.floor(Math.random() * height)
+
+		let userWidth, userHeight, userValue
+
+		do {
+			userWidth = parseInt(prompt(`Який номер рядка від 1 до ${width}`))
+			userHeight = parseInt(prompt(`Який номер стовпця від 1 до ${height}`))
+			value --
+			userValue = userWidth === rowPosition && userHeight === heightPosition
+			if(!userValue)
+			alert('не попав ')
+
+		} while (!userValue && value > 0);
+		if(userValue)
+		alert('Попав')
+		else('Програли')
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>ЗАДАЧА 9</title>
+</head>
+<body>
+	<p>
+		Користувач загадує число. Комп'ютер задає питання поки не вгадає
+        число користувача(використати confirm)
+	</p>
+	<script>
+		alert('Загадайте число від 1-20')
+		let minRandom = 1
+		let maxRandom = 20
+		let userNumber = false
+
+		do {
+			let random = minRandom + Math.floor(Math.random() *(maxRandom - minRandom +1))
+			userNumber = confirm(`Це число ${random}?`)
+		} while (!userNumber);
+		alert('Комп"ютер відгадав ваше число')
+	</script>
+</body>
+</html>
