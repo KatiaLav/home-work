@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>ЗАДАЧА 7</title>
+</head>
+<body>
+	<p>
+		Вивести на екран N абзаців(N вводиться користувачем) за зразком
+	</p>
+	<script>
+		let n = parseInt(prompt('Скільки абзаців додати?'))
+		// let paragraphNum = 0
+		let paragraph = 0
+
+		for(let number = 1; number <= n; number++ ) {
+			document.write(`<h1> Заголовок ${number} </h1>`)
+			for( let p = 1; p <= number; p++){
+				document.write(`<p> Розділ ${number} параграф ${number} </p>`)
+				if(paragraph === p)
+					paragraph++
+			}
+		document.write('<hr>')
+	}
+	</script>
+</body>
+</html>
