@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<h3>Задача 9</h3>
+	<p>
+		Комерсант, володіючи стартовим капіталом N грн, зайнявся торгівлею, що
+      збільшує його капітал щомісячно на р%. Через скільки років він
+      накопичить суму S, достатню для того, щоб придбати власний магазин.
+	</p>
+	<script>
+		"use strict"
+		let n = parseFloat(prompt('Введіть початковий капітал для власної справи')) // капітал який буде збільшуватись
+		const tax =  parseFloat(prompt('Введіть % від доходу'))// % від доходу
+		let s = parseFloat(prompt('Введіть суму, яка потрібна для покупки магазину')) // потрібно на власний магазин
+		let count = 0
+
+		while (n <= s) {
+			let a = (n * tax) / 100
+			n += a
+			count++
+			document.write(`${a.toFixed(2)} \n  <br>`)
+		}
+		document.write(`Знадобиться ${count}місяців щоб отримати суму для покупки магазину <br>`)
+		document.write(`капітал= ${n.toFixed(2)}, потрібно на магазин= ${s}`)
+	</script>
+</body>
+</html>

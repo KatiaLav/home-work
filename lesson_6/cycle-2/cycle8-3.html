@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<h3>Задача 8.3</h3>
+	<p>
+		З клавіатури вводиться число.Знаходити суму цифр до тих пір. Поки сума не стане більшою за 20.
+	</p>	
+		<script>
+			"use strict"
+			let totalsum = 0
+			let userSum
+			do {
+				userSum = parseInt(prompt('Введіть число'))
+				totalsum += userSum
+			} while (totalsum <= 20);
+			document.write(`${totalsum} є більшою за 20`)
+		</script>
+	</p>
+</body>
+</html>

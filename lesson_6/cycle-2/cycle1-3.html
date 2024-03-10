@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 1.3</h3>
+      <p>
+         З клавіатури вводяться числа поки не буде введено 0.Знайти суму чисел
+		</p>
+         <script>
+            "use strict"
+				let sumNumber = 0
+				let userNumber
+				do {
+					userNumber = parseInt(prompt('Введіть число'))
+					sumNumber += userNumber
+					document.write(`${userNumber}, <br>`)
+				} while (userNumber !== 0);
+				document.write(`Сума чисел ${sumNumber}`)
+         </script>
+      </p>
+   </body>

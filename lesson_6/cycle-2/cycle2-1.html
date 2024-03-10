@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 2.1</h3>
+      <p>
+			З клавіатури поступово вводяться символи поки не буде введено символ
+         "а". Вивести рядок символів у зворотньому напрямку
+		</p>
+         <script>
+            "use strict"
+				let symbolUser
+				let reversOrder = ' '
+
+				while(symbolUser !== 'a'){
+				symbolUser = prompt('Введіть символ, "а" ').toLowerCase()
+				document.write(`${symbolUser}, `)
+				}
+				// не змогла вивести зворотній рядок
+				// const resultReversOrder = reversOrder.split(' ').reverse()
+				// document.write(`Рядок зворотній ${resultReversOrder}`)
+				
+         </script>
+      </p>
+   </body>

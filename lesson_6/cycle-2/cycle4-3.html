@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 4.3</h3>
+      <p>
+         З клавіатури поступово вводяться числа.Знайти суму перших N парних чисел
+		</p>
+         <script>
+            "use strict"
+				const n = parseInt(prompt('Введіть число N='))
+				let evenNumber = 0
+				let evenSum = 0
+
+				for(let i = 0; i < n; i++){
+					do {
+						evenNumber = parseInt(prompt('Введіть число'))
+					} while (evenNumber % 2 !== 0);
+					evenSum += evenNumber
+				}
+				document.write(`${evenSum}`)
+         </script>
+      </p>
+   </body>

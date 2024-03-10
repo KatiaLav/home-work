@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/style.css">
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 3.3</h3>
+      <p>
+         З клавіатури вводиться початкове значення сум. Поки сума є меншою за
+         100 додавати до неї числа, які вводяться з клавіатури
+      </p>
+		<script>
+			"use strict"
+			let sum = 0
+			let sumUser
+			do {
+				sumUser = parseInt(prompt('Введіть число'))
+				sum += sumUser
+			} while (sum < 100);
+			document.write(`Sum = ${sum}`)
+		</script>
+   </body>
+</html>

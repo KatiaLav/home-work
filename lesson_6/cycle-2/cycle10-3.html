@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 10.3</h3>
+      <p>
+         З клавіатури вводиться вартість одиниці товару. Поки користувач не
+         введе суму грошей, яка достатня для купівлі товару або не відмовиться
+         від купівлі давати можливість вводити суму грошей.<br>
+         <script>
+            "use strict"
+				let productPrice = parseFloat(prompt('Введіть ціну товару!'))
+				let userSumProduct = 0
+				
+				do {
+					userSumProduct = parseFloat(prompt(`Внесіть суму ${productPrice}`))
+					productPrice -= userSumProduct
+					
+				} while (productPrice > 0);
+				if(productPrice < 0)
+				document.write(`Ваша решта ${Math.abs(productPrice)}грн <br>`)
+				document.write('Вітаємо з покупкою')
+         </script>
+      </p>
+   </body>
+</html>

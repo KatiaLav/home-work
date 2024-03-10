@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<h3>Задача 11 і задача 11.1</h3>
+      <p>
+			Вивести на екран усі двоцифрові числа, у яких перша цифра є більшою або рівною за другу
+		</p>
+	<script>
+		"use strict"
+		// for(let a1 = 1; a1 < 9; a1++){
+		// 	for(let a2 = 0; a2 <= a1; a2++)
+		// 	document.write(`S= ${a1}${a2}, `)
+		// }
+
+		
+
+		// Задача 11.1
+		// Вивести на екран усі трицифрові числа, у яких перша цифра є більшою або рівною за суму другої і третьої
+		// Варіант №1 (всіх всеодно не враховує)
+		for(let i1 = 1; i1 < 9; i1++) {
+			for(let i2 = 0, i3 = 0; (i2 + i3) <= i1, (i3 + i2) <= i1; i2++, i3++)
+			document.write(`${i1}${i2}${i3} <br>`)
+		}
+
+		// Варіант №2 (всіх всеодно не враховує)
+		// let i1
+		// let i2 = 0
+		// let i3 = 0
+		// for(i1 = 1; i1 < 9; i1++) {
+		// 	for(i2 = 0; (i2 + i3) <= i1; i2++){
+		// 		for(i3 = 0; (i3 + i2) <= i1; i3++)
+		// 		document.write(`${i1}${i2}${i3} <br>`)
+		// 	}	
+		// }
+
+	</script>
+</body>
+</html>

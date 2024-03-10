@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 4.1</h3>
+      <p>
+			З клавіатури вводятьс 2 числа N і M (N < M). Вивести на екран числа N--M
+		</p>
+         <script>
+            "use strict"
+				let n = parseInt(prompt('Введіть число N'))
+				let m = parseInt(prompt('Введіть число M'))
+
+				while (n < m) {
+					document.write(` ${n} -- ${m} <br>`)
+					n++
+					m--
+				}
+
+				// for(; n < m; n++, m--){
+				// 	document.write(`${n}--${m} <br>`)
+				// }
+         </script>
+      </p>
+   </body>

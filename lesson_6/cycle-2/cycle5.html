@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <h3>Задача 5 і 6</h3>
+      <p>
+         Інвестор вклав S тис. грн на 20 років під 20% річних. Визначити за
+         допомогою циклів суму, яку він одержить (без оподаткування)
+      </p>
+      <script>
+         // "use strict"
+			// let s = parseFloat(prompt('Введіть значення S='))
+			// let sum = 0
+			// sum = s
+			// for(let i = 0; i <= 20; i++){
+			// 	let a = (sum * 20) / 100
+			// 	sum += a
+			// }
+			// document.write(`З отриманої інвестором суми ${s} через 20 років він отримає 20% річних у сумі= ${(sum).toFixed(2)}`)
+				// Задача 6
+			// до наступної задачі з такою ж умовою тільки з оподаткуванням.
+			// податок складає 5% від суми прибутку
+			// Визначити яку суму одержить інвестор
+			let s = parseFloat(prompt('Введіть значення S='))
+			let sum = 0
+			sum = s
+			let tax = 5
+			// let sumTax
+			for(let i = 0; i <= 20; i++){
+				let a = (sum * 20) / 100
+				sum += a
+			}
+			document.write(`З отриманої інвестором суми ${s} через 20 років він отримає 20% річних у сумі= ${(sum).toFixed(2)} <br>`)
+
+			document.write(`5% податку від прибутку складає інвестору у сумі= ${((sum * tax) / 100).toFixed(2)}`)
+      </script>
+   </body>
+</html>
