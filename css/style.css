@@ -1,38 +1,80 @@
+
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,700,900&display=swap");
 body {
-    padding: 20px;
-    border: 3px solid black;
-    box-shadow: 2px 2px 90px 4px rgba(152, 11, 107, 0.854);
-    font-size: 24px;
-    background-color: rgb(218, 224, 228);
+	font-family: "Lato";
+	font-weight: 700;
+   padding: 20px;
+   font-size: 28px;
 }
+.wrapper {
+   overflow: hidden;
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.wrapper > main {
+   flex-grow: 1;
+}
+/* ------------------------------------------------------------------- */
 .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    font-size: 36px;
-    background-color: rgba(152, 11, 107, 0.854);
+   padding: 40px;
+   border: 2px solid black;
+   background-color: rgba(152, 11, 107, 0.854);
+	position: relative;
 }
-a {
-}
-.page h4 {
-    text-decoration: underline;
-}
-.page a {
-    transition: transform 0.4s ease 0s;
-}
-.page a:hover {
-    transform: scale(1.4);
-    transition: transform 0.4s ease 0s;
-    color: black;
-}
-li {
-    transition: all 0.4s ease 0s;
-}
-li:hover {
-    transform: translate(20px);
-    transition: all 0.4s ease 0s;
-    color: black;
+.page__content{
+	display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+	font-size: 36px;
+	gap: 20px;
 }
 
+.page__content:not(:last-child){
+	margin-bottom: 40px;
+}
+/* ----------------------------------------------------------------------- */
+.page__link{
+	display: flex;
+   flex-direction: column;
+	justify-content: center;
+   align-items: center;
+}
+.page__link:not(:last-child){
+	margin-bottom: 30px;
+}
+.page__link li:not(:last-child){
+	margin-bottom: 20px;
+}
+.page__link a{
+	display: flex;
+	text-decoration: underline;
+	transition: all 0.4s ease 0s;
+}
+.page__link a:hover{
+	color: rgb(231, 172, 213);
+	transform: scale(1.6);
+	transition: all 0.4s ease 0s;
+}
+/* ----------------------------------------------------------------------- */
+
+.page h4 {
+   /* text-decoration: underline; */
+}
+.page a {
+   /* transition: transform 0.4s ease 0s; */
+}
+.page a:hover {
+   /* transform: scale(1.4);
+   transition: transform 0.4s ease 0s;
+   color: black; */
+}
+li {
+   /* transition: all 0.4s ease 0s; */
+}
+li:hover {
+   /* transform: translate(20px);
+   transition: all 0.4s ease 0s;
+   color: black; */
+}
