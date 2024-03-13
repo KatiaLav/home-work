@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 3</h4>
+      <p>
+         Створити окремі функції, які для 4 чисел знаходять: суму, добуток,
+         середнє арифметичне, мінімальне значення.
+      </p>
+      <script>
+         "use strict"
+         function calcSumNumber(num1, num2, num3, num4) {
+            let sumNumber = num1 + num2 + num3 + num4
+            return sumNumber
+         }
+         // створити функцію на знаходження добутку
+         function calcProductNumber(num1, num2, num3, num4) {
+            let productNumber = num1 * num2 * num3 * num4
+            return productNumber
+         }
+         // створити функцію на знаходження середнє арифметичне
+         function calcMediumNumber(num1, num2, num3, num4) {
+            let mediumNumber = (num1 + num2 + num3 + num4) / 2
+            return mediumNumber
+         }
+         // створити функцію на знаходження мінімальне значення
+         function calcMinNumber(num1, num2, num3, num4) {
+            let minNumber = Math.min(num1, num2, num3, num4)
+            return minNumber
+         }
+
+         let a = parseFloat(prompt("Введіть значення першого числа"));
+         let b = parseFloat(prompt("Введіть значення другого числа"));
+         let c = parseFloat(prompt("Введіть значення третього числа"));
+         let d = parseFloat(prompt("Введіть значення четвертого числа"));
+
+         let sumNumber = calcSumNumber(a, b, c, d);
+         let productNumber = calcProductNumber(a, b, c, d);
+         let mediumNumbe = calcMediumNumber(a, b, c, d);
+         let minNumber = calcMinNumber(a, b, c, d);
+
+         document.write(`Сума чисел = ${sumNumber} <br>`);
+         document.write(`Добуток чисел = ${productNumber} <br>`);
+         document.write(`Середнє арифметичне = ${mediumNumbe} <br>`);
+         document.write(`Мінімальне значення = ${minNumber} <br>`);
+      </script>
+   </body>
+</html>

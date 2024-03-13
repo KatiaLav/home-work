@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 8</h4>
+      <p>
+         Створити функцію, яка виводить банер(у функцію передаються:зображення,
+         заголовок та посилання, куди переходимопр ліку на зображення)
+      </p>
+      <script>
+         "use strict"
+         function getLinkBaner(text, link) {
+				document.write(`
+				<div>
+         <h3>${text}</h3>
+			<a href="#"><iframe width="560" height="315" src="${link}" frameborder="0"></iframe></a>
+			</div>
+				`)
+			}
+
+			getLinkBaner('Надя Дорофеєва', 'https://www.youtube.com/embed/ApIqVddaw-c?si=SN0OoHw0hXzRY9W4');
+      </script>
+   </body>
+</html>

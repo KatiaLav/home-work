@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 5</h4>
+      <p>
+         Створити окремі функції, які переводять:см в дюйми, кг у фунти, км в
+         милі
+      </p>
+      <script>
+         "use strict"
+         function getInch(value) {
+            let inch = 0.3937
+            return value * inch
+         }
+
+         function getPound(value) {
+            let pound = 2.20462262
+            return value * pound
+         }
+
+         function getMile(value) {
+            let mile = 0.621371192
+            return value * mile
+         }
+
+         let a = parseFloat(prompt("Введіть значення числа"))
+
+         let resultInch = getInch(a);
+         let resultPound = getPound(a);
+         let resulMile = getMile(a);
+
+         document.write(
+            `${a}см перевести в дюйми = ${resultInch.toFixed(2)}дюймів <br>`
+         );
+         document.write(
+            `${a}кг перевести в фунти = ${resultPound.toFixed(2)}фунтів <br>`
+         );
+         document.write(
+            `${a}км перевести в милі = ${resultInch.toFixed(2)}миль <br>`
+         );
+      </script>
+   </body>
+</html>

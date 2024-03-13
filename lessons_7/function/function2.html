@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/lessons_7/css/style.css">
+	<title>Function</title>
+</head>
+<body>
+	<h4>Задача 2</h4>
+	<p>
+		Створити функцію, яка за номером дня дозволяє з'ясувати чи цей
+		день робочий.
+	</p>
+	<script>
+		"use strict"
+		function getWeekDay() {
+	let userWeekDay = parseInt(prompt('Введітьномер дня тижня'));
+	let resultDay;
+	switch (userWeekDay) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5: resultDay = 'Будні дні тижня зазвичай робочі';
+			break;
+		case 6: 
+		case 7: resultDay = 'Вихідний день тижня';
+			break;
+		default: resultDay = 'Некоректні дані';
+			break;
+	}
+	return (resultDay);
+}
+document.write(getWeekDay());
+	</script>
+</body>
+</html>

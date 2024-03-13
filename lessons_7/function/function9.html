@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 9</h4>
+      <p>
+         Дано покази температур (довільна кількість). Розробити функцію, яка
+         дозволить підрахувати к-ть від'ємних показів.
+      </p>
+      <script>
+         "use strict"
+         function calcMinusTemp(num1, num2, num3, num4, num5, num6) {
+            let countTempMinus = 0 // к-ть від'ємних показників
+            for (let i = 0; i < arguments.length; i++) {
+               if (arguments[i] < 0) {
+                  countTempMinus++;
+               }
+               if (countTempMinus === 0) {
+						return('Від\'ємні показники відсутні')
+					}
+            }
+            return countTempMinus
+         }
+         // головна частина
+         // передача аргументів у функцію
+         let valueTempNumber = calcMinusTemp(24, 6, 5, 45, 6, 43)
+         // вивід функції
+         document.write(`Кількість від\'ємних показів -- ${valueTempNumber}`)
+      </script>
+   </body>
+</html>

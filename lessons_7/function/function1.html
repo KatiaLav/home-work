@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/lessons_7/css/style.css">
+	<title>Function</title>
+</head>
+<body>
+	<h4>Задача 1</h4>
+	<p>
+		Створити функцію, яка за номером місяця поверне його дату.
+	</p>
+	<script>
+		"use strict"
+		function getMonth() {
+	let userMonth = parseInt(prompt('Введіть номер місяця'))
+	let resultMonth;
+	switch (userMonth) {
+		case 1: resultMonth = 'Січень';
+			break;
+		case 2: resultMonth = 'Лютий';
+			break;
+		case 3: resultMonth = 'Березень';
+			break;
+		case 4: resultMonth = 'Квітень';
+			break;
+		case 5: resultMonth = 'Травень';
+			break;
+		case 6: resultMonth = 'Червень';
+			break;
+		case 7: resultMonth = 'Липень';
+			break;
+		case 8: resultMonth = 'Серпень';
+			break;
+		case 9: resultMonth = 'Вересень';
+			break;
+		case 10: resultMonth = 'Жовтень';
+			break;
+		case 11: resultMonth = 'Листопад';
+			break;
+		case 12: resultMonth = 'Грудень';
+			break;
+		default: resultMonth = 'Некоректні дані';
+			break;
+	}
+	return (resultMonth);
+}
+document.write(getMonth());
+	</script>
+</body>
+</html>

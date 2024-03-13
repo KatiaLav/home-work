@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 10</h4>
+      <p>
+         Дано покази температур (довільна кількість). Розробити функцію, яка
+         дозволить знайти середнє значення для додатних показників.
+      </p>
+      <script>
+         "use strict"
+         // опис функції
+         function calcAvaregeTemp(num1, num2, num3, num4) {
+            let plusTempSum = 0 // додатні показники
+            let countTempPlus = 0 // к-ть додатних показників
+            let averegeTemp = 0 // середнє значення
+            for (let i = 0; i < arguments.length; i++) {
+               if (arguments[i] > 0) {
+                  countTempPlus++
+                  plusTempSum += arguments[i]
+               }
+               if (countTempPlus > 0) {
+                  averegeTemp = plusTempSum / countTempPlus
+               }
+            }
+            return averegeTemp
+         }
+         // передача аргументів у функцію
+         let valueTempNumber = calcAvaregeTemp(24, -6, 5, 45)
+         // вивід
+         document.write(valueTempNumber.toFixed)
+      </script>
+   </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 6</h4>
+      <p>
+         Створити функцію, яка створює таблицю з вказаною к-тю рядків і
+         стовпців(таблиця заповнюється заданими фіксованими повідомленнями).
+      </p>
+      <script>
+         "use strict"
+         function getTable(row, column, massenger) {
+            document.write('<table border="2px">')
+            for (let i = 0; i < row; i++) {
+               document.write("<tr>")
+               for (let a = 0; a < column; a++) {
+                  document.write(`<td>${massenger}</td>`)
+               }
+               document.write("</tr>")
+            }
+            document.write("</table>")
+         }
+
+         let row = parseInt(prompt("Введіть кількість рядків"))
+         let column = parseInt(prompt("Введіть кількість стовпців"))
+         let massenger = prompt("Введіть текст")
+
+         getTable(row, column, massenger)
+      </script>
+   </body>
+</html>

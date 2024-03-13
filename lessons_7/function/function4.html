@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_7/css/style.css" />
+      <title>Function</title>
+   </head>
+   <body>
+      <h4>Задача 4</h4>
+      <p>
+         Створити функцію, яка для 3 заданих чиселзнаходить одночасно де-кілька
+         результатів:кількість парних, кількість додатних, кількість більших за
+         100.
+      </p>
+      <script>
+         "use strict"
+         let evennumber = 0
+         let positiveNumber = 0
+         let moreHundred = 0
+
+         function getResultNumber(num1, num2, num3) {
+            if (num1 % 2 === 0) evennumber++
+            if (num2 % 2 === 0) evennumber++
+            if (num3 % 2 === 0) evennumber++
+            if (num1 > 0) positiveNumber++
+            if (num2 > 0) positiveNumber++
+            if (num3 > 0) positiveNumber++
+            if (num1 > 100) moreHundred++
+            if (num2 > 100) moreHundred++
+            if (num3 > 100) moreHundred++
+         }
+
+         let a = parseFloat(prompt("Введіть значення першого числа"))
+         let b = parseFloat(prompt("Введіть значення другого числа"))
+         let c = parseFloat(prompt("Введіть значення третього числа"))
+
+         let resultAction = getResultNumber(a, b, c)
+			document.write(`${a}, ${b}, ${c} <br>`)
+         document.write(`Кількість парних - ${evennumber} <br>`)
+         document.write(`Кількість додатних - ${positiveNumber} <br>`)
+         document.write(`Кількість > 100 - ${moreHundred}`)
+      </script>
+   </body>
+</html>
