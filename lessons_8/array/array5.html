@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/lessons_8/css/style.css">
+	<title>Arrays</title>
+</head>
+<body>
+	<h4>Задача 5</h4>
+	<p>
+		Дано послідовність оцінок учня. Підрахувати к-ть:двійочник, хороших оцінок, ті які нижче середнього.
+	</p>
+	<script>
+		"use strict"
+		const ratingUserNumber =[];
+		function getRatingUserNumber() {
+			for (let i = 0; i < 10; i++) {
+				const userRating = parseInt(prompt(`Введіть ${i+1} оцінку учня`))
+				ratingUserNumber.push(userRating)
+			}
+		}
+		function getCategoryRatingNumber_1(ratingUserNumber) {
+			let rating_2 = 0;
+			for (let i = 0; i < ratingUserNumber.length; i++) {
+				if(ratingUserNumber[i] === 2 || ratingUserNumber[i] === 1)
+				rating_2++
+			}
+			return rating_2;
+		}
+
+		function getCategoryRatingNumber_2(ratingUserNumber) {
+			let rating_4 = 0;
+			for (let i = 0; i < ratingUserNumber.length; i++) {
+				if(ratingUserNumber[i] === 3 || ratingUserNumber[i] === 4)
+				rating_4++
+			}
+			return rating_4;
+		}
+		function getCategoryRatingNumber_3(ratingUserNumber) {
+			let rating_5 = 0;
+			for (let i = 0; i < ratingUserNumber.length; i++) {
+				if(ratingUserNumber[i] === 5)
+				rating_5++
+			}
+			return rating_5;
+		}
+
+		document.write(`
+		${ getRatingUserNumber()}
+		Оцінки ${ratingUserNumber} <br>
+		Оцінок 2 та 1 - ${getCategoryRatingNumber_1(ratingUserNumber)} <br>
+		Оцінок 3 та 4 - ${getCategoryRatingNumber_2(ratingUserNumber)} <br>
+		Оцінок 5 - ${getCategoryRatingNumber_3(ratingUserNumber)} <br>
+		`);
+	</script>
+</body>
+</html>

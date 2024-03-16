@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_8/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 7</h4>
+      <p>
+         Дано послідовність платіжок протягом року. Знайти сумарну к-ть грошей
+         за: 
+			<p>1) за весь рік.</p>
+			<p>2) у першій половині року</p>
+			<p>3) у другій половині року</p>
+			<p>4) за літо</p>
+			<p>5) за 2 квартал</p>
+			<p>6) за парні місяці (з парним номером)</p>
+			<p>7) за місяці, які є початковими у сезоні (весна літо осінь зима)</p>
+			
+      </p>
+      <script>
+         "use strict"
+         // масив платежів протягом року
+         let payments = [
+            468, 326, 854, 321, 699, 571, 692, 903, 776, 347, 961, 209,
+         ]
+
+         function getPaymentsPeriod(payments, startMonth, endMonth) {
+            let sum_0 = 0
+            for (let i = startMonth; i <= endMonth; i++) {
+               sum_0 += payments[i]
+            }
+            return sum_0
+         }
+         // за весь рік.
+			const paymentsYear = getPaymentsPeriod(payments, 0, 11)
+         document.write(`За весь рік= ${paymentsYear}грн <br>`)
+         // у першій половині року
+         const firstHalfYear = getPaymentsPeriod(payments, 0, 5)
+         document.write(`У першій половині року= ${firstHalfYear}грн <br>`)
+         // у другій половині року
+         const secondHalfYear = getPaymentsPeriod(payments, 6, 11)
+         document.write(`У другій половині року= ${secondHalfYear}грн <br>`)
+         // за літо
+         const summer = getPaymentsPeriod(payments, 5, 7)
+         document.write(`За літо= ${summer}грн <br>`)
+         // за 2 квартал
+         const secondQuarter = getPaymentsPeriod(payments, 3, 5)
+         document.write(`За 2 квартал= ${secondQuarter}грн <br>`)
+         // за парні місяці (з парним номером)
+         function getPaymentsEvenMonth(payments, startMonth, endMonth) {
+            let sum_0 = 0
+            for (let i = startMonth; i <= endMonth; i++) {
+					if(i % 2 === 1)
+               sum_0 += payments[i];
+            }
+            return sum_0
+         }
+			const evenMonth = getPaymentsEvenMonth(payments, 0, 11)
+         document.write(`За парні місяці= ${evenMonth}грн <br>`)
+			// 7) за місяці, які є початковими у сезоні (весна літо осінь зима)
+			function getPaymentsEvenMonth(payments, startMonth, endMonth) {
+            let sum_0 = 0
+            for (let i = startMonth; i <= endMonth; i+=3)
+               sum_0 += payments[i];
+            return sum_0
+         }
+			const firstQuarterMonth = getPaymentsEvenMonth(payments, 0, 11)
+         document.write(`За місяці, які є початковими у сезоні= ${firstQuarterMonth}грн <br>`)
+      </script>
+   </body>
+</html>

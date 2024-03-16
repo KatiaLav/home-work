@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_8/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+			Дано масив, який зберігає к-ть відвідувачів магазину протягом тижня. Вивести на екран:<br>
+				1) номери днів, протягом яких к-ть відвідувачів була < 20.<br>
+				2) номери днів, к-ть відвідувачів була min.<br>
+				3)номери днів, к-ть відвідувачів була max.<br>
+				4)загальну к-ть клієнтів у робочі дні.<br>
+				5)загальну к-ть клієнтів у вихідні дні.<br>
+		</p>
+      <script>
+         "use strict"
+         const weekPerson = [5, 12, 39, 8, 28, 20, 16]
+
+// кі-ть відвідувачів була <20
+         function getWeekPersons(weekPerson) {
+            let count = []
+            for (let i = 0; i < weekPerson.length; i++) {
+               if (weekPerson[i] < 20) count.push(i + 1)
+            }
+            return count
+         }
+         const weekPersons = getWeekPersons(weekPerson)
+         document.write(`Менше 20 осіб було у ${weekPersons}дні <br>`)
+//коли к-ть відвідувачів була max
+         function getWeekMaxPersons(...weekPerson) {
+            return Math.max(...weekPerson)
+         }
+         let maxPersons = getWeekMaxPersons(5, 12, 39, 8, 28, 20, 16)
+         document.write(`Набільше відвідувачів${maxPersons} осіб <br>`)
+//коли к-ть відвідувачів була min
+			function getWeekMinPersons(...weekPerson) {
+            return Math.min(...weekPerson)
+         }
+         let minPersons = getWeekMinPersons(5, 12, 39, 8, 28, 20, 16)
+         document.write(`Найменше відвідувачів${minPersons} осіб <br>`)
+// загал. к-ть клієнтів у робочі дні
+			function getTotalPersonsWorkDay(weekPerson) {
+				let sum = 0;
+				for (let i = 0; i < 5; i++) {
+					sum += weekPerson[i];
+				}
+				return sum;
+			}
+			document.write(`Загал. к-ть клієнтів у робочі дні =${getTotalPersonsWorkDay(weekPerson)} <br>`);
+// загал. к-ть клієнтів у вихідні дні
+			function getTotalPersonsDayOff(weekPerson) {
+				let sum = 0;
+				for (let i = 5; i <= 6; i++) {
+					sum += weekPerson[i];
+				}
+				return sum;
+			}
+			document.write(`Загал. к-ть клієнтів у вихідні дні =${getTotalPersonsDayOff(weekPerson)} <br>`);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/lessons_8/css/style.css">
+	<title>Arrays</title>
+</head>
+<body>
+	<h4>Задача 3
+	</h4>
+	<p>
+		Дано масив, імен учнів. З'ясувати скіль разів зустрічається ім'я Іван
+	</p>
+	<script>
+		"use strict"
+		const userName = []
+
+		function getUserNameValue() {
+			for (let i = 0; i < 5; i++) {
+				const name = prompt(`Введіть ім'я ${i+1} особи`)
+				userName.push(name.toLowerCase())
+			}
+			return userName;
+		}
+		function getNameIvan(userName) {
+			let count = 0;
+			for (let i = 0; i < userName.length; i++) {
+				if(userName[i] === 'іван')
+				count++
+			}
+			return count;
+		}
+		// const nameIvan = getNameIvan(userName)
+		document.write(`Серед заданих імен: ${getUserNameValue()}, ім'я Іван зустрічається - ${getNameIvan(userName)}разів`);
+	</script>
+</body>
+</html>

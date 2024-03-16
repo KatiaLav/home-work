@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_8/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+         Дано масив, який містить оцінки з К предметів. Знайти середній бал і
+         з'ясувати до якої категорії він відноситься (двійочник, трійочник,
+         хорошист)
+      </p>
+      <script>
+         "use strict"
+         // вношу оцінки К предметів від користувача
+         function getIndexNum(numberPredmet) {
+            let index = []
+            for (let i = 0; i < numberPredmet; i++) {
+               const userNum = parseInt(
+                  prompt(`Ведіть оцінку (від 1 до 5) ${i + 1}-го предмета`)
+               )
+               index.push(userNum)
+            }
+            return index
+         }
+         // вираховую середній бал
+         function getAverage(numberPredmet, indexNum) {
+            let sum = 0
+            for (let i = 0; i < indexNum.length; i++) {
+               sum += indexNum[i]
+            }
+            return Math.round(sum / numberPredmet)
+         }
+         // визначаю категорію
+         function getCategoryIndex() {
+            let categoty = 0
+            if (average === 5 || average === 4) categoty = "ХОРОШИСТ"
+            else if (average === 3) categoty === "ТРІЙОЧНИК"
+            else if (average === 2) categoty === "ДВІЙОЧНИК"
+            return categoty
+         }
+         const numberPredmet = parseInt(
+            prompt("оцінки скількох предметів вивести?")
+         )
+         let indexNum = getIndexNum(numberPredmet)
+         let average = getAverage(numberPredmet, indexNum)
+         document.write(
+            `Середній бал = ${getAverage(
+               numberPredmet,
+               indexNum
+            )}, категорія - ${getCategoryIndex()}`
+         )
+      </script>
+   </body>
+</html>
