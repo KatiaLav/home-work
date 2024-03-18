@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_9/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+         Користувач вводить к-ть елементів. Створити масив, у якому перша половина
+         елементів заповнена "1", а друга "7".
+      </p>
+      <script>
+         "use strict"
+			let userNumberElement = parseInt(prompt('Введіть кількість елементів у масиві.'));
+			// із заокругленням до верху.
+			// let newUserArr = new Array(userNumberElement).fill(1, 0, Math.ceil(userNumberElement/2)).fill(7, Math.ceil(userNumberElement/2));
+			// або за замовченням заокруглення до низу.
+			let newUserArr = new Array(userNumberElement).fill(1, 0, userNumberElement/2).fill(7, userNumberElement/2);
+			document.write(newUserArr);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_9/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 3</h4>
+      <p>
+         Користувач вводить кількість елементів. Створити масив, у якому перші 5
+         елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+         ///// ---------- Тут використати цикл for..of -----------
+      </p>
+      <script>
+         "use strict"
+			let userElementNumber = parseInt(prompt('Введіть кількість елементів для масиву.'));
+			let valueArray = new Array(userElementNumber).fill(1, 0, 5).fill(7, 5);
+			document.write(`початкове значення --- ${valueArray}<br>`);
+			for (let item of valueArray) {
+				document.write(item);
+			}
+      </script>
+   </body>
+</html>

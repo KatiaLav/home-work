@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_9/css/style.css">
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 9</h4>
+   <p>
+		Дано масив імен. Сформувати масив з перших літер цих імен.
+	</p>
+   <script>
+      "use strict"
+		let namePerson = ['Злата', 'Ярина', 'Олеся', 'Влада', 'Ореста', 'Марта', 'Поліна'];
+		let firstLetterNamePerson = namePerson.map((letter, index, baseArr) => letter[0])
+		document.write(`${namePerson} <br>`);
+		document.write(firstLetterNamePerson);
+   </script>
+</body>
+</html>

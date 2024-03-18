@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_9/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 10</h4>
+      <p>
+         Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде
+         містити величину сплаченого податку у грн.
+      </p>
+      <script>
+         "use strict"
+			let pricesList = [54, 187, 87, 426, 98, 346];
+			let taxPricesList = pricesList.map((price, index, baseArr) => price * 0.2)
+			document.write(`Прайс цін у грн --- ${pricesList}<br>`);
+			document.write(`Розмір податку у грн --- ${taxPricesList}`);
+      </script>
+   </body>
+</html>

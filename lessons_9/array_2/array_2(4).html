@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_9/css/style.css">
+	<style>
+		div{display:block}
+	</style>
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 4</h4>
+   <p>
+		Дано масив елементів. Вивести на екран елементи, що більші за 100.
+	</p>
+   <script>
+      "use strict"
+		let elementArray = [67, 123, 765, 34, 75, 342, 987, 65];
+		document.write(`Масив значень --- ${elementArray} <br>`);
+		document.write('Елементи більші за 100 <br>');
+		// let moreHundred = 0;
+		for (let selection  of elementArray) {
+			if(selection > 100)
+			document.write(`<span>${selection}</span>, `);
+		}
+   </script>
+</body>
+</html>

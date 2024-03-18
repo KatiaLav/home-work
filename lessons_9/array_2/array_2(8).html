@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_9/css/style.css">
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 8</h4>
+   <p>
+		Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+	</p>
+   <script>
+      "use strict"
+		let carNumber = ['АА8765ВА', 'ОР6529НІ', 'АС8726ІТ', 'АТ8723МО', 'ХМ9876ІВ'];
+		let categoryNumberCar = carNumber.filter(
+			(element, index, baseArr) => 
+			element[0] === 'А'
+		)
+		document.write(`Масив номерів авто: ${carNumber}<br>`);
+		document.write(`Масив номерів авто, які починаються на "А": ${categoryNumberCar},`);
+   </script>
+</body>
+</html>

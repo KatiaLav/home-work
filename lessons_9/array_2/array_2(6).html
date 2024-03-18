@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_9/css/style.css">
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 6</h4>
+   <p>
+		Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2.
+	</p>
+   <script>
+      "use strict"
+		let arrayElements = [15, 7, 3, 9, 23, 37, -15, 16, 29];
+		arrayElements.forEach((item, index, baseArr) => {
+			if(item > baseArr[0]) baseArr[index] *= 2;
+		})
+		document.write(arrayElements);
+   </script>
+</body>
+</html>

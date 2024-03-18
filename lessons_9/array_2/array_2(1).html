@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_9/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+         Користувач вводить к-ть елементів. Створити масив, що складається з
+         вказаної к-ті елементів заповнених нулями.
+      </p>
+      <script>
+         "use strict"
+			const userElement = parseInt(prompt('Введіть кількість елементів в масиві'));
+			let arrayUserNew = new Array(userElement).fill(0);
+			document.write(arrayUserNew);
+      </script>
+   </body>
+</html>

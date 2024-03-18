@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_9/css/style.css">
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 5</h4>
+   <p>
+		Дано масив елементів. Знайти добуток додатних елементів <br>
+//======= Тут використовуйте що хочете для розв’язання==================
+	</p>
+   <script>
+      "use strict"
+		let arrayElements = [5, -7, 3, -9, 23, 37, -15, 46, 29];
+		let productElements = 1;
+		arrayElements.forEach(
+			(arrayElements) => {
+				if(arrayElements > 0)
+				productElements *= arrayElements
+			}
+		)
+		document.write(`${arrayElements} <br>`);
+		document.write(`Добуток додатних елементів складає -- ${productElements}`);
+   </script>
+</body>
+</html>
