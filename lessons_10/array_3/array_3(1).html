@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/lessons_10/css/style.css">
+   <title>Arrays</title>
+</head>
+<body>
+   <h4>Задача 1</h4>
+   <p>
+		Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).
+	</p>
+	<ul>
+		<li>Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</li>
+		<li>Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.</li>
+		<li>Сформувати список з тих цін, які більші за попереднє значення</li>
+		<li>Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального</li>
+		<li>Підрахувати кількість змін цін</li>
+		<li>Визначити, чи є ціна, що менше 1000</li>
+		<li>Визначати, чи усі ціни більше за 1000</li>
+		<li>Підрахувати кількість цін, що більше за 1000</li>
+		<li>Підрахувати суму цін, що більше за 1000</li>
+		<li>Знайти першу ціну, що більше за 1000</li>
+		<li>Знайти індекс першої ціни, що більше за 1000</li>
+		<li>Знайти останню ціну, що більше за 1000</li>
+		<li>Знайти індекс останньої ціни, що більше за 1000</li>
+	</ul>
+   <script>
+      "use strict"
+		let pricesValuablePapers = []
+for (let i = 0; i < 30; i++) {
+   let randomNum = 1 + Math.floor(Math.random() * 10000)
+   pricesValuablePapers.push(randomNum)
+}
+document.write(`Історія цін за деякий період --- ${pricesValuablePapers} <br>`)
+// 1
+let moreOneThousand = pricesValuablePapers.filter((element) => element > 1000)
+document.write(`1)Ті що більші за 1000 ---- ${moreOneThousand} <br>`);
+// 2
+// новий масив в якому номери > 1000
+// let newArrNumberMoreThousand = [];
+// pricesValuablePapers.forEach((element) => { if (element > 1000) newArrNumberMoreThousand.push(element) });
+// document.write(newArrNumberMoreThousand);
+// або, напевно, цей варіант краще відповідає умові.
+let newArrNumberMoreThousand = pricesValuablePapers.reduce(
+   (prevNewArr, element, index) =>
+      element > 1000 ? prevNewArr + index : prevNewArr,
+   []
+)
+document.write(`2) Новий масив у якому є номери тільки тих, що > за 1000 --- ${newArrNumberMoreThousand} <br>`);
+// 3
+let listPricesMoreThousand = pricesValuablePapers.filter((element, index, baseArr) => index === 0 || element > baseArr[index - 1])
+document.write(`3) Список цін, які більші за попереднє значення --- ${listPricesMoreThousand} <br>`);
+// 4
+let maxValueNumber = Math.max(...pricesValuablePapers);
+let newArrayValuePricesTax = pricesValuablePapers.map((element) => Math.round(element * 100 / maxValueNumber))
+document.write(`4) Максимальне значення --- ${maxValueNumber} <br>`);
+document.write(`4) Новий масив, що містить значення цін у % стосовно максимального --- ${newArrayValuePricesTax}, <br>`);
+// 5
+let numberPricesChanges = pricesValuablePapers.reduce((prevChanges, element, index, baseArr) => (element !== baseArr[index - 1] ? prevChanges + 1 : prevChanges), 0)
+document.write(`5) Кількість змін цін --- ${numberPricesChanges} <br>`);
+// 6
+let pricesLessThousand = pricesValuablePapers.some((element) => element < 1000);
+document.write(`6) Чи є ціна менша за 1000 --- ${pricesLessThousand} <br>`);
+// 7
+let pricesEveryThousand = pricesValuablePapers.every((element) => element > 1000);
+document.write(`7) Чи усі ціни більші за 1000 --- ${pricesEveryThousand} <br>`);
+// 8
+let countPrices = pricesValuablePapers.reduce((prevCount, element) => (element > 1000 ? prevCount + 1 : prevCount), 0);
+document.write(`8) Кількість цін, що > за 1000 --- ${countPrices} <br>`);
+// 9
+let pricesSum = pricesValuablePapers.reduce((prevPricesSum, element) => (element > 1000 ? prevPricesSum + element : prevPricesSum), 0);
+document.write(`9) Підрахувати суму цін, що > 1000 --- ${pricesSum} <br>`);
+// 10
+let firstPricesMoreThousand = pricesValuablePapers.find((element) => element > 1000);
+document.write(`10 Знайти першу ціну, яка > за 1000 --- ${firstPricesMoreThousand}<br>`);
+// 11
+let indexFirstPrices = pricesValuablePapers.findIndex((element) => element > 1000);
+document.write(`11) Індекс першої ціни, яка > за 1000 --- ${indexFirstPrices}<br>`);
+// 12
+let lastPrices = pricesValuablePapers.findLast((element) => element > 1000);
+document.write(`12) Остання ціна, яка > за 1000 --- ${lastPrices}<br>`);
+// 13
+let indexLastPrices = pricesValuablePapers.findLastIndex((element) => element > 1000);
+document.write(`13) Індекс останньої ціни, що > за 1000 --- ${indexLastPrices} <br>`);
+   </script>
+</body>
+</html>
