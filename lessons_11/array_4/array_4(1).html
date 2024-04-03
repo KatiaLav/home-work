@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_11/css/style.css" />
+      <title>Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>Знайти суми елементів у вказаній області.</p>
+      <ol>
+         <li>Номери рядків від 0 до половини, стовпці від 0 до половини.</li>
+         <li>
+            Номери рядків від 0 до половини, стовпці від половини до кінця.
+         </li>
+         <li>
+            Номери рядків від половини до кінця, стовпці від 0 до половини.
+         </li>
+         <li>
+            Номери рядків від половини до кінця , стовпці від половини до кінця.
+         </li>
+         <li>Суму парних рядків.</li>
+         <li>Суму непарних стовпців.</li>
+         <li>У парних рядках – непарні стовпці, у непарних – парні.</li>
+      </ol>
+      <script>
+         "use strict"
+         document.write(`Таблиця з масивами 6х6 <br> <br>`)
+         function getArrNumbersInTable(row, column, min, max) {
+            let arrayRandomNumbers = []
+            for (let rowIndex = 0; rowIndex < row; rowIndex++) {
+               let rowWithNumbers = []
+               for (let columnIndex = 0; columnIndex < column; columnIndex++) {
+                  let randomNumberForRows =
+                     min + Math.floor(Math.random() * (max - min + 1))
+                  rowWithNumbers.push(randomNumberForRows)
+               }
+               arrayRandomNumbers.push(rowWithNumbers)
+               document.write(`[${rowWithNumbers}]<br>`)
+            }
+            return arrayRandomNumbers
+         }
+         let arrNumbersInTable = getArrNumbersInTable(6, 6, 1, 20)
+         console.log(arrNumbersInTable)
+         // document.write(`Згенеровані числа для масиву  [${arrNumbersInTable}] <br><br>`)
+
+         let halfLength = arrNumbersInTable.length / 2;
+         // 1
+         function getTotalSumTable(startRow, startColumn, endRow, endColumn, step = 1) {
+            let sumPart = 0
+            for (let row = startRow; row < endRow; row += step) {
+               for (let column = startColumn; column < endColumn; column += step) {
+                  sumPart += arrNumbersInTable[row][column]
+               }
+            }
+            return sumPart
+         }
+         let totalSumPartTable = getTotalSumTable(0, 0, halfLength, halfLength, 1);
+         document.write(`1) Загальна сума рядків верхньої-лівої частини таблиці --- ${totalSumPartTable} <br>`);
+
+         // 2
+         let totalSumPart2Table = getTotalSumTable(3, 0, 6, halfLength, 1);
+         document.write(`2) Загальна сума  рядків верхньої-правої частини таблиці --- ${totalSumPart2Table}<br>`);
+
+         // 3
+         let totalSumPart3Table = getTotalSumTable(0, 3, 3, 6, 1);
+         document.write(`3) Загальна сума рядків нижньої-лівої частини таблиці --- ${totalSumPart3Table}<br>`);
+
+         // 4
+         let totalSumPart4Table = getTotalSumTable(3, 3, 6, 6, 1);
+         document.write(`4) Загальна сума рядків нижньої-правої частини таблиці --- ${totalSumPart4Table}<br>`);
+
+         // 5
+         let sumEvenRow = 0
+         for (let row = 1; row < arrNumbersInTable.length; row += 2) {
+            for (let column = 0; column < arrNumbersInTable[row].length; column++) {
+               sumEvenRow += arrNumbersInTable[row][column]
+            }
+         }
+         document.write(`5) Загальна сума парних рядків --- ${sumEvenRow}<br>`)
+
+         // 6
+         let sumOddColumn = 0
+         for (let row = 0; row < arrNumbersInTable.length; row++) {
+            for (
+               let column = 0;
+               column < arrNumbersInTable[row].length;
+               column += 2
+            ) {
+               sumOddColumn += arrNumbersInTable[row][column]
+            }
+         }
+         document.write(`6) Загальна сума непарних  стовпців --- ${sumOddColumn}<br>`)
+
+         // 7(1)
+         let sumEvenRowOddColumn = 0
+         for (let row = 1; row < arrNumbersInTable.length; row += 2) {
+            for (
+               let column = 0;
+               column < arrNumbersInTable[row].length;
+               column += 2
+            ) {
+               sumEvenRowOddColumn += arrNumbersInTable[row][column]
+            }
+         }
+         document.write(`7(1)) Загальна сума у парних рядках та непарних  стовпцях --- ${sumEvenRowOddColumn}<br>`)
+
+         // 7(2)
+         let sumOddRowEvenColumn = 0
+         for (let row = 0; row < arrNumbersInTable.length; row += 2) {
+            for (
+               let column = 1;
+               column < arrNumbersInTable[row].length;
+               column += 2
+            ) {
+               sumOddRowEvenColumn += arrNumbersInTable[row][column]
+            }
+         }
+         document.write(`7(2)) Загальна сума у непарних рядках та  парних  стовпцях --- ${sumOddRowEvenColumn}<br>`)
+      </script>
+   </body>
+</html>
