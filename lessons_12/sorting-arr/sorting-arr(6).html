@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_12/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 6</h4>
+      <p>
+         Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+         визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+      </p>
+      <script>
+         "use strict"
+			const names = [ 'Martin', 'Robert', 'John', 'Peter', 'Josh'];
+			// відсортований масив
+			// names.sort()
+			document.write(`Масив імен: <br> [${names}]<br>`);
+
+			let prevLastIndex = names.length - 1;
+			for(let i = 0; i <= prevLastIndex; i++){
+				let minIndex = i;
+				for(let j = i + 1; j < names.length; j++){
+					if(names[j].length < names[minIndex].length){
+						minIndex = j;
+					}
+				}
+				if(i !== minIndex ){
+					let temp = names[i]
+					names[i] = names[minIndex]
+					names[minIndex] = temp
+				}
+			}
+			document.write(`Відсортований масив за довжиною імені: <br> [${names}]<br>`);
+			
+			// бінарний пошук
+
+			let nameWith5Characters = 5;
+			function getNameWith5Characters(names, nameWith5Characters){
+			let start = 0;
+			let end = names.length - 1;
+			while (start <= end) {
+				const middleIndex = Math.floor((start + end) / 2);
+				if(names[middleIndex].length === nameWith5Characters) return ['Iм\'я з такою кількістю символів є, знаходиться під індексом --', middleIndex];
+				if(names[middleIndex].length < nameWith5Characters) start = middleIndex + 1;
+				if(names[middleIndex].length > nameWith5Characters) end = middleIndex - 1;
+			}
+			return 'Нема імені з такою кількістю символів';
+		}
+		let nameWith = getNameWith5Characters(names, nameWith5Characters);
+		document.write(`${nameWith}<br>`);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_12/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 5</h4>
+      <p>
+         Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+         визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+      </p>
+      <script>
+         "use strict"
+			const names = [ 'Martin', 'Robert', 'John', 'Peter', 'Josh', 'Olga']
+
+			// сортування масиву імен
+			names.sort();
+			document.write(`Відсортований масив імен: <br> [${names}]<br>`);
+
+
+			// чи є у масиві ім'я 'Olga'
+			let nameOlga = names.some(
+				(element) => element === 'Olga'
+			)
+			document.write(`Чи є у масиві ім'я 'Olga' -- ${nameOlga}<br>`);
+			// або
+			let nameOlga2 = names.includes('Olga')
+			document.write(`Чи є у масиві ім'я 'Olga = ${nameOlga2}<br>`);
+
+			// Під яким індексом ім'я 'Olga'
+			let nameOlgaIndex = names.findIndex(
+				(element) => element === 'Olga'
+			)
+			document.write(`Ім'я 'Olga' під індексом  = ${nameOlgaIndex}<br>`);
+
+			// бінарне упорядкування
+
+			let searchElement = 'Olga';
+			function getNameOlga(names, searchElement) {
+				let start = 0;
+				let end = names.length - 1;
+				while (start <= end) {
+					const middle = Math.floor((start + end) / 2)
+					if(names[middle] === searchElement) return middle
+					if(names[middle] < searchElement) start = middle + 1
+					if(names[middle] > searchElement) end = middle - 1
+				}
+				return -1;
+			}
+			let searchNameOlga = getNameOlga(names, searchElement);
+			document.write(`Бінарний пошук <br> Ім'я 'Olga' під індексом -- ${searchNameOlga}<br>`);
+      </script>
+   </body>
+</html>

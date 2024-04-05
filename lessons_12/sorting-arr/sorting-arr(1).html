@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_12/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+         Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів
+         та порівнянь чисел під час сортування бульбашкою.
+      </p>
+      <script>
+         "use strict"
+			// згенерувати 30 чисел
+			const min = 1;
+			const max = 50;
+			const quantity = 30;
+
+			function generateNumbers(min, max) {
+				return min + Math.floor(Math.random() * (max - min + 1))
+			}
+			function getNumbersArr(min, max, quantity) {
+				let numbersArr = [];
+				for(let i = 0; i < quantity; i++) {
+					let num = generateNumbers(min, max)
+					numbersArr.push(num)
+				}
+				return numbersArr;
+			}
+			let arrNumbers =  getNumbersArr(min, max, quantity);
+			document.write(`Рандомний масив -- [${arrNumbers}] <br>`);
+
+			// упорядкування бульбашкою
+		
+			let leftIndex = 0;
+			let rightIndex = arrNumbers.length - 1;
+			let count1 = 0;
+			let count2 = 0;
+				while (leftIndex < rightIndex) {
+					let changed = false;
+					for( let i = leftIndex + 1; i <= rightIndex; i++){
+						if(arrNumbers[i - 1] > arrNumbers[i]){
+							let temp = arrNumbers[i - 1];
+							arrNumbers[i - 1] = arrNumbers[i];
+							arrNumbers[i] = temp;
+							changed = true;
+							count2++;
+						}
+						count1++;
+					}
+					if(changed === false) break;
+				}
+				
+				document.write(`Упорядкований масив -- [${arrNumbers}] <br>`);
+				document.write(`Обмінів  -- ${count2} <br>`);
+				document.write(`Порівняння  -- ${count1}`);
+
+
+      </script>
+   </body>
+</html>
