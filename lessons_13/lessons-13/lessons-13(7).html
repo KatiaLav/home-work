@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_13/css/style.css" />
+      <title>Timer Locking Recursions</title>
+   </head>
+   <body>
+      <h4>Задача 7</h4>
+      <p>
+         Тренажер додавання. Кожні 10 секунд користувачу задають випадковий
+         приклад з додавання двох цифр і робиться перевірка.
+      </p>
+      <script>
+         "use strict"
+			function getExample() {
+				let rendNum1 = Math.floor(Math.random() * 11);
+				let rendNum2 = Math.floor(Math.random() * 11);
+				let sum = rendNum1 + rendNum2;
+				let example = parseInt(prompt(`${rendNum1} + ${rendNum2}`));
+				let s = setTimeout(getExample, 5000);
+				// return (example === sum) ? alert('Вірно!') : alert('Не вірно!');
+				if(example === sum) 
+					alert('Вірно!');
+				else
+					{alert('Не вірно!')
+					clearTimeout(s)}
+			}
+			getExample();
+      </script>
+   </body>
+</html>

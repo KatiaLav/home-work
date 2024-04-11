@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_13/css/style.css" />
+      <title>Timer Locking Recursions</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+         Реалізуйте рекурсивну функцію, яка генерує всі можливі підмножини
+         заданого масиву. Наприклад, для масиву [1, 2, 3] можливі підмножини:
+         [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3].
+      </p>
+      <script>
+         "use strict"
+			let resArr = [];
+			function getSubsetsArr(step, resArr) {
+				if(step === 3) document.write(`[${resArr}]<br>`);
+				else{
+					document.write(`[${resArr}]<br>`);
+					getSubsetsArr(step + 1, [...resArr, 1])
+					getSubsetsArr(step + 1, [...resArr, 2])
+					getSubsetsArr(step + 1, [...resArr, 3])
+				}
+			}
+			getSubsetsArr(0, []);
+      </script>
+   </body>
+</html>

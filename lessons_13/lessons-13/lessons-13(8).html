@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_13/css/style.css" />
+      <title>Timer Locking Recursions</title>
+   </head>
+   <body>
+      <h4>Задача 8</h4>
+      <p>
+         При старті питаємо у користувача чи хоче він читати новини. Якщо так,
+         то одразу переходимо до сайту Ukr.Net, якщо ні, то через 20 секунд самі
+         переходимо на сайт ukr.net. Для цього через 20 секунд після відкриття
+         треба виконати команду: window.location.href = 'https://www.ukr.net/'
+      </p>
+      <script>
+         "use strict"
+			function getNewsRead() {
+				return confirm('Бажаєте перейти до перегляду новин?') ? (window.location.href = 'https://www.ukr.net/') : setTimeout(() => (window.location.href = 'https://www.ukr.net/'), 20000);
+			} 
+			getNewsRead();
+      </script>
+   </body>
+</html>

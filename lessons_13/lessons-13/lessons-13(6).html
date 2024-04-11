@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_13/css/style.css" />
+      <title>Timer Locking Recursions</title>
+   </head>
+   <body>
+      <h4>Задача</h4>
+      <p>
+         З використанням замикань розробити ітератор, тобто функцію, що буде
+         поступово за окремими викликами видавати по одну букву наперед заданого
+         слова. З використанням нього розробити гру «Прекладач». Виводимо для
+         користувача опис цього слова і по одну букву користувач вводить
+         переклад цього слова. Підрахувати кількість вгаданих букв.
+      </p>
+      <script>
+         "use strict"
+			const question = alert('Відгадай слово?');
+			const answerQuestion = ['s', 'u', 'm', 'm', 'e', 'r'];
+			document.write(`Правильна відповідь на питання  - ${answerQuestion} <br> <br>`);
+
+// формую масив з літер, які вводить користувач
+			let arr = [];
+				for(let i = 0; i < 6; i++){
+					const questionLetter = prompt(`What is the next season? \n введіть ${i + 1} літеру загаданого слова (латинськими літерами)`).toLowerCase()
+					arr.push(questionLetter)
+				}
+			document.write(`Відповідь користувача [${arr}] <br> <br>`);
+
+//замкнена функція 
+			function getQuestionUser(arr, name) {
+				function getCorrectAnswer() {
+					let counter = 0;
+					let d = name.forEach((element, index, baseArr) => {
+						if(baseArr[index] === arr[index])
+						counter++;
+					});
+					return counter;
+				}
+				return getCorrectAnswer();
+			}
+
+			let questionUser = getQuestionUser(arr, answerQuestion);
+			let differenceResult = answerQuestion.length - questionUser;
+			document.write(`Відгадано літер - ${questionUser} <br> Не відгадано літер - ${differenceResult} `);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_13/css/style.css" />
+      <title>Timer Locking Recursions</title>
+   </head>
+   <body>
+      <h4>Задача 5</h4>
+      <p>
+			З використанням замикань розробити ітератор, тобто функцію, що
+         буде поступово за окремими викликами видавати по одне значення
+         від заданого мінімального до заданого максимального. Якщо
+         значення досягне максимального, то наступним буде мінімальне
+         значення. З використанням цієї функції реалізувати перебір
+         номерів місяців.
+		</p>
+      <script>
+         "use strict"
+			let max = 12;
+			let min = 1;
+
+			function getMonth(min, max) {
+				let a = min;
+				function getNextMonth() {
+					if(a >= max + 1) a = min;
+					else return a++
+				}
+				return getNextMonth;
+			}
+			let s = getMonth(min, max)
+
+			for (let i = 1; i < 15; i++){
+				document.write(`${s()}<br>`);
+			}
+      </script>
+   </body>
+</html>
