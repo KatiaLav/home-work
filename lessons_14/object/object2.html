@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_14/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+			Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+		</p>
+      <script>
+         "use strict"
+			let todayDate = {
+				day: 12,
+				month: 4,
+				year: 2024,
+			}
+			function getNextYear(todayDate, month) {
+				let year = todayDate.year
+				let monthNew = Math.floor((todayDate.month - 1 + month) / 12)
+				if(monthNew === 0)
+				return year
+				else return (year + (Math.floor((todayDate.month + month) / 12)))
+				
+			}
+			let yearResult = getNextYear(todayDate, 20)
+			document.write(`Визначити, який буде рік через N місяців  == ${yearResult}`);
+      </script>
+   </body>
+</html>

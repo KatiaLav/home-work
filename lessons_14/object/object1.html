@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_14/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+			Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+			----- Властивості ------
+			назва компанії на час розробки (назву періодично змінюють)
+			власник компанії
+			споснсори (масив спонсорів)
+			* прізвище спонсора
+			* ім’я  спонсора
+			* сума вкладень спонсора
+			рік випуску
+			вартість сайту
+			Знайти:
+			1) загальну вартість усіх сайтів
+			2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+			3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+			4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+			5) знайти рік, коли прибуток був найбільшим
+			6) упорядкувати список за спаданням прибутку
+			7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+		</p>
+      <script>
+         "use strict"
+
+//-------------властивості------------------
+
+			let siteDeveloperCompany = [
+			{
+				nameCompany: 'Creative',
+				headCompany: 'Ivan',
+				sponsor:{
+					lastName: 'Johnson',
+					name:'Rose',
+					attachment: 19000
+				},
+				year: 2000,
+				price: 45678
+			},
+			{
+				nameCompany: 'Crive',
+				headCompany: 'Ben',
+				sponsor:{
+					lastName: 'Joshnec',
+					name:'Pitter',
+					attachment: 59000
+				},
+				year: 2000,
+				price: 8678
+			},
+			{
+				nameCompany: 'Active',
+				headCompany: 'Ben',
+				sponsor:{
+					lastName: 'Brown',
+					name:'Ruth',
+					attachment: 790800
+				},
+				year: 2012,
+				price: 45008
+			},
+			{
+				nameCompany: 'Benedict',
+				headCompany: 'Olga',
+				sponsor:[{
+							lastName: 'Smith',
+							name:'James',
+							attachment: 540000
+						},
+						{
+							lastName: 'Borisuk',
+							name: 'Jon',
+							attachment: 564388
+						}],
+				year: 2017,
+				price: 87451
+			}
+		]
+		// 1) загальну вартість усіх сайтів
+		let totalSumSite = siteDeveloperCompany.reduce((prevSum, el) => prevSum + el.price, 0)
+		document.write(`1) Загальна вартість усіх сайтів  -- ${totalSumSite}<br><br>`);
+
+		// 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+		let totalNumSite = siteDeveloperCompany.reduce((prevCount, el) => el.year >= 2000 && el.year <= 2009 ? prevCount + 1 : prevCount, 0)
+		document.write(`2) Кількість сайтів, що було зроблено між 2000 та 2009 рр. -- ${totalNumSite}<br><br>`);
+
+		// 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+		let sumSponsorAttachment = siteDeveloperCompany.reduce((prevCount, el) => el.sponsor.attachment >= 100000 ? prevCount + 1 : prevCount, 0)
+		document.write(`3) Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 -- ${sumSponsorAttachment}<br><br>`);
+
+      // 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+		let totalListSponsor = siteDeveloperCompany.reduce((prevCount, siteSponsor) => prevCount.concat(siteSponsor.sponsor), [])
+		console.log(totalListSponsor);
+		document.write(`4) Відповідь в консоль <br><br>`);
+		
+		// 5)  знайти рік, коли прибуток був найбільшим
+		let maxProfit = -Infinity;
+		let yearMaxProfit;
+
+		for (const profit of siteDeveloperCompany) {
+			if(profit.price > maxProfit)
+			maxProfit = profit.price;
+			yearMaxProfit = profit.year
+		}
+		document.write(`Найбільший прибуток - ${maxProfit} був у ${yearMaxProfit} році <br><br>`);
+	
+		// 6) упорядкувати список за спаданням прибутку
+		let decliningProfits = siteDeveloperCompany.sort((a, b) => b.price - a.price)
+		console.log(decliningProfits);
+		document.write(`6) Відповідь в консоль <br><br>`);
+
+		// 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+		let listObjLess10000 = siteDeveloperCompany.filter((element) => element.price < 10000)
+		document.write(`7.1) Відповідь в консоль <br><br>`);
+		console.log(listObjLess10000);
+
+		let listObjMore10000 = siteDeveloperCompany.filter((element) => element.price > 10000)
+		document.write(`7.2) Відповідь в консоль <br><br>`);
+		console.log(listObjMore10000);
+		</script>
+   </body>
+</html>
+
