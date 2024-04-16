@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_15/css/style.css" />
+      <title>Object 2</title>
+   </head>
+   <body>
+      <h4>Задача 3</h4>
+      <p>
+			<p>Розробити клас MultChecker для перевірки таблиці множення</p>
+			<ul>Поля:</ul> 
+				<li>Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)</li>
+				<li>Кількість правильних відповідей</li>
+				<li>Кількість неправильних відповідей</li>
+			<ul>Методи:</ul>
+				<li>Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)</li>
+				<li>Перевірка правильності вказаної відповіді</li>
+				<li>render - виведення інформації про тестування на екран</li>
+		</p>
+      <script>
+         "use strict"
+			let numMultiply = 7;
+			let counterCorrect = 0;
+			let counterNotCorrect = 0;
+
+			class MultChecker {
+				constructor(numMultiply, counterCorrect, counterNotCorrect){
+					// ----опис поля
+					this.numMultiply = numMultiply;
+					this.counterCorrect = counterCorrect;
+					this.counterNotCorrect = counterNotCorrect;
+				}
+				// ----опис методів
+				getGenerate(){
+					return 1 + Math.floor(Math.random() * 10)
+				}
+				getAudit(){
+					let secondNum = this.getGenerate()
+					let userAnswer = parseInt(prompt(`Скільки буде ${this.numMultiply} * ${secondNum} =`))
+						if(userAnswer === (this.numMultiply * secondNum)) 
+						return this.counterCorrect++
+						else return this.counterNotCorrect++
+				}
+				getAnswer(){
+					this.getAudit()
+					document.write(`Правильних відповідей-${this.counterCorrect} <br> Неправельних відповідей-${this.counterNotCorrect}`);
+				}
+			}
+			let multChecker = new MultChecker(numMultiply, counterCorrect, counterNotCorrect)
+			
+			for (let index = 1; index < 5; index++) {
+				// multChecker.getAnswer()
+				multChecker.getAudit() 
+			}
+			multChecker.getAnswer()
+
+      </script>
+   </body>
+</html>

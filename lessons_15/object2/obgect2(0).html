@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_15/css/style.css" />
+      <title>Object 2</title>
+   </head>
+   <body>
+      <h4>Задача 0</h4>
+      <p>
+         Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному
+         з них є функція знаходження суми, а у іншому – функція для знаходження
+         добутку тих, які знаходяться між заданими мінімальним і максимальних
+         значенням.
+			Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+      </p>
+      <script>
+         "use strict"
+			let obj1 = {
+				number: [8, 7, 4, 5],
+				getTotalSum: function(){
+					let sum = this.number.reduce((prevSum, sum) => prevSum + sum)
+					return document.write(`Загальна сума -- ${sum} <br>`);
+				}
+			}
+			let obj2 = {
+				number: [4, 1, 7, 2],
+				getTotalProduct: function(min, max){
+					let product = this.number.filter((num) => num >= min && num <= max).reduce((prevProduct, num) => prevProduct * num, 1)
+					return document.write(`Загальний добуток -- ${product} <br>`);
+				}
+			}
+
+			obj1.getTotalSum()
+			obj2.getTotalProduct(1, 7)
+			// ---call
+			document.write('У об\'єкті 2 використала функцію з об\'єкта 1 ---');
+			obj1.getTotalSum.call(obj2)
+			document.write('У об\'єкті 1 використала функцію з об\'єкта 2 ---');
+			obj2.getTotalProduct.call(obj1, 4, 8)
+			// ----apply
+			document.write('Добуток: функція з об\'єкта 2 масив з об\'єкта 1');
+			obj2.getTotalProduct.apply(obj1, [4, 8])
+			document.write('Сума: функція з об\'єкта 1 масив з об\'єкта 2');
+			obj1.getTotalSum.apply(obj2)
+      </script>
+   </body>
+</html>

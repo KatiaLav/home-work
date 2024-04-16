@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_15/css/style.css" />
+      <title>Object 2</title>
+   </head>
+   <body>
+      <h4>Задача 1</h4>
+      <p>
+			Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+			Тир	
+			Поля(властивості): Масив, у якому зберігається поле з зайцями
+			Методи (дії): Метод пострілу (задається позиція пострілу). Виведення ігрового поля
+		</p>
+      <script>
+         "use strict"
+			// -------------
+			let objGame = {
+				arrRabbit: [0, 1, 0, 0, 1, 0],
+				// ------------
+				getShotRabbit: function (shotPosition){
+					if(this.arrRabbit[shotPosition] === 1){
+					this.arrRabbit[shotPosition] = 0;
+					return document.write(`У позиції ${shotPosition} є заєць! <br>`);
+					}
+					else return document.write(`У позиції ${shotPosition} нема зайця!<br>`);
+				},
+				getArr: function(){
+					document.write(`[${this.arrRabbit}]<br>`);
+				}
+			}
+			objGame.getArr()
+			objGame.getShotRabbit(1)
+			objGame.getArr()
+      </script>
+   </body>
+</html>

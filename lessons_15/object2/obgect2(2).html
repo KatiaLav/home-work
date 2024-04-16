@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_15/css/style.css" />
+      <title>Object 2</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+         Створити об’єкт «Авто». Авто - Поля(властивості): Марка, Розмір бака,
+         Кількість наявних літрів, Кількість місць кількість пасажирів. Методи
+         (дії): Заправка на вказану кількість літрів, Виведення кількості
+         пасажирів, Додавання пасажирів, Висадка пасажирів.
+      </p>
+      <script>
+                  "use strict"
+                  // -------Поля(властивості)
+		let auto = {
+         marka: "Volkswagen",
+         tankSize: 60,
+         numberLitersFuel: 20,
+         numberSeats: 5,
+         numberPassengers: 1,
+         getCarRefueling: function (liter) {
+         let volumeDifference = this.tankSize - this.numberLitersFuel;
+         if(liter > volumeDifference) {
+         let resLitersMore = liter - volumeDifference;
+            document.write(`${liter}л не поміститься у бак, вільно на ${volumeDifference}л пального.<br>`);
+            throw new Error('Недостатньо вільно місця у баку');
+         }
+         return document.write(`У баку ${liter + this.numberLitersFuel}л пального<br>`);
+         },
+         getNumPassengers: function () {
+				document.write(`Кількість пасажирів: ${this.numberPassengers}<br>`);
+         },
+			getPlusPassengers: function(passengers) {
+				this.passengers = passengers;
+				if(this.passengers < ((this.numberSeats - this.numberPassengers) - 1))
+				return document.write(`Пасажирів було: ${this.numberPassengers}, а тепер:${passengers + this.numberPassengers}<br>`)
+				else {
+				return document.write(`Вільних місць у авто: ${this.numberSeats - this.numberPassengers - 1}<br>`)
+				}
+				throw new Error('Недостатньо вільних місць у авто')
+			},
+			getMinusPassengers: function(passengers){
+				if(this.numberPassengers === passengers)
+					return document.write(`У авто ${this.numberPassengers} пасажирів, вийшло ${this.passengers}<br>`)
+				else if(this.passengers < this.numberPassengers) {
+					let res = this.numberPassengers - passengers
+					return document.write(`У авто залишилось ${res} пасажирів, вийшло ${passengers}<br>`)
+				}
+				return document.write(`Нема такої кількості пасажирів<br>`)
+				throw new Error('Нема такої кількості пасажирів')
+			}
+      }
+            // 1
+				auto.getCarRefueling(10)
+            // 2
+            auto.getNumPassengers();
+            // 3
+				auto.getPlusPassengers (2)
+				// 4
+				auto.getMinusPassengers (1)
+      </script>
+   </body>
+</html>
