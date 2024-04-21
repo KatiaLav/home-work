@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_16/css/style.css" />
+      <title>Sorting Arrays</title>
+   </head>
+   <body>
+      <h4>Class Encapsulation</h4>
+      <p>
+         Створити клас TBankomat, який моделює роботу банкомата. Клас повинен
+         містити поля для зберігання кількості купюр кожного із номіналів від 5
+         до 200 гривень. Реалізувати методи знаходження максимальної та
+         мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+      </p>
+      <script>
+         "use strict"
+			class Bills {
+				constructor(value, number){
+					this.value = value
+					this.number = number
+				}
+				get totalSumValue(){
+					return this.number * this.value
+				}
+				toString(){
+					return `${this.value} : ${this.number}`
+				}
+			}
+			// ---------------------------------------------------------------
+			class TBankomat{
+				constructor(listOfBills){
+					// опис полів
+					this.listOfBills = listOfBills
+				}
+				// максимальна сума
+				getMinSum(){
+					let min = this.listOfBills.reduce((prevVal, bills) => bills.number > 0 && bills.value < prevVal ? bills.value : prevVal, Infinity)
+					return isFinite(min) ? min : 0
+				}
+				// мініиальна сума
+				getMaxSum(){
+					let max = this.listOfBills.reduce((prevSum, bills) => prevSum + bills.totalSumValue, 0)
+					return max
+				}
+				// -----------------
+				getPossibleBillsList(val){
+					let possibleBills = []
+					for (let i = 0; i < this.listOfBills.length && val > 0; i++){
+						let note = this.listOfBills[i]
+						if(val >= note.value && note.number > 0){
+							let notesNum = Math.floor(val / note.value)
+							let notesToGive = Math.min(notesNum, note.number)
+							possibleBills.push({note, notesToGive
+							})
+							val -= notesToGive * note.value
+						}
+					}
+					if(val > 0) return false
+					return possibleBills
+				}
+				// зняття суми 
+				getMoneyUser(val){
+					if(val > this.getMaxSum) {
+					throw new Error ('Нема такої кількості грошей')
+					return document.write('Нема такої кількості грошей');
+				}
+				
+				let possibleBills = this.getPossibleBillsList(val)
+				console.log(possibleBills)
+				if(possibleBills){
+					for(const{note, notesToGive} of possibleBills){
+						document.write(`${note.value} : ${notesToGive}<br>`)
+						note.number -= notesToGive
+					}
+					document.write('Заберіть ваші гроші');
+				} else {
+					document.write('Нема таких купюр');
+				}
+			}
+			}
+			// --------------------------------------------
+			const listOfBills = [
+				new Bills(200, 3),
+				new Bills(100, 24),
+				new Bills(50, 4),
+				new Bills(20, 18),
+				new Bills(10, 34),
+				new Bills(5, 7)
+			]
+			// ------------------------------------------
+			let bankomat = new TBankomat(listOfBills)
+			document.write(`Максимальна сума, яку можна зняти: ${bankomat.getMaxSum()}грн<br>`);
+			document.write(`Мінімальна сума, яку можна зняти: ${bankomat.getMinSum()}грн<br>`);
+			bankomat.getMoneyUser(500)
+      </script>
+   </body>
+</html>

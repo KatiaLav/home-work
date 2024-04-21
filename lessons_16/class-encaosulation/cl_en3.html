@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_16/css/style.css" />
+      <title>Class Encapsulation</title>
+   </head>
+   <body>
+      <h4>Задача 3</h4>
+      <p></p>
+		<div>
+			<table>
+				<tr>
+					<td colspan="2">Задача 3. Об’єкт “Фірма” (використати члени-класи)
+						<tr>
+						<td>Поля</td>
+						<td>
+							<ul>
+								<li>назва фірми;</li>
+								<li>дата заснування (рік, місяць);</li>
+								<li>послуги (назва послуги, вартість, термін виконання);</li>
+								<li>адреси філіалів (країна, місто, вулиця, номер будинку);</li>
+							</ul>
+						</td>
+					</tr>
+				<td>Методи</td>
+				<td>
+					<ul>
+						<li>визначення кількості років існування фірми;</li>
+						<li>виведення всіх філіалів фірми у вказаному місті;</li>
+						<li>виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;</li>
+					</ul>
+				</td>
+				</tr>
+			</table>
+		</div>
+      <script>
+         "use strict"
+			
+			// =========================================================
+			class Establishment{
+				#year
+				#month
+				get Year(){
+					return this.#year
+				}
+				get Month(){
+					return this.#month
+				}
+				set Year(year){
+					if(year < 2000) throw new Error('Рік не може бути меншим за рік заснування фірми.')
+					this.#year = year
+				}
+				set Month(month){
+					if(month < 0 || month > 12) throw new Error('Некоректний номер місяця')
+					this.#month = month
+				}
+				constructor(year, month){
+					this.Year = year
+					this.Month = month
+				}
+				toString(){
+					return `заснована ${this.Year}року  ${this.Month}місяця <br>`
+				}
+			}
+			class Services {
+				#name
+				#price
+				get Name(){
+					return this.#name
+				}
+				get Price(){
+					return this.#price
+				}
+				set Name(name){
+					if(name.length === 0) throw new Error ('Назва послуги не може бути порожньою')
+					this.#name = name
+				}
+				set Price(price){
+					if(price === 0 || price < 0) throw new Error ('Ціна послуги має бути вказаною.')
+					this.#price = price
+				}
+				constructor(name, price, numberDay){
+					this.Name = name
+					this.Price = price
+					this.numberDay = numberDay
+				}
+				toString(){
+					return `${this.Name} , ціна:${this.Price}грн , термін виконання:${this.numberDay}дні <br>`
+				}
+			}
+			class Branches{
+				constructor(country, city, street, number){
+					this.country = country
+					this.city = city
+					this.street = street
+					this.number = number
+				}
+				toString(){
+					return `${this.country}, м.${this.city}, вул.${this.street}/${this.number} <br>`
+				}
+			}
+			// =========================================================
+			
+			class Firma {
+				#name
+				get Name(){
+					return this.#name
+				}
+				set Name(name){
+					if(name.length === 0) throw new Error ('Назва фірми не може бути порожньою')
+					this.#name = name
+				}
+				constructor(name, establishment = new Establishment(), services, branches){
+					this.Name = name
+					this.establishment = establishment
+					this.services = services
+					this.branches = branches
+				}
+				// -----------------
+				// методи
+				// -----------------
+				// заснування фірми
+				toString(){
+					return `Фірма: "${this.Name}" ${this.establishment} <br>`
+				}
+				// вік фірми
+				getAgeOfTheFirm(value){
+					if(value < this.establishment.Year) throw new Error ('Некоректний рік, рік має бути більшим за рік заснування фірми')
+					else return value - this.establishment.Year
+				}
+				// філіали фірми
+				getBranchCity(value){
+					return this.branches.filter((branches) => value === branches.city)
+				}
+				// послуги
+				getServicesMoney(value){
+					return this.services.filter((services) => value >= services.Price)
+				}
+			}
+			// =========================================================
+			// заснування
+			const establishment =new Establishment( 2000, 6)
+			// послуги
+			const services = [
+				new Services('Хімчистка салону', 5000, 4) ,
+				new Services('Полірування автомобіля', 4000, 2) ,
+				new Services('Полірування фар', 2000, 1) ,
+				new Services('Миття мотора', 3000, 3)
+			]
+			// філіали
+			const branches = [
+				new Branches('Україна', 'Львів', 'Відродження', 8),
+				new Branches('Україна', 'Київ', 'Набережна', 16),
+				new Branches('Україна', 'Київ', 'Кривий Вал', 39),
+				new Branches('Україна', 'Одеса', 'Соборна', 23)
+			]
+			// =========================================================
+			// фірма виклик
+			const firm = new Firma('Auto SPA', establishment, services, branches)
+			document.write(firm);
+			document.write(`Фірма існує: ${firm.getAgeOfTheFirm(2024)}роки <br>`);
+			document.write(`Адреса нашого сервісу знаходиться: <br> ${firm.getBranchCity('Київ')} <br>`);
+			document.write(`На дану суму ви можете скористатись такими послугами, як: <br> ${firm.getServicesMoney(2000)} <br>`);
+      </script>
+   </body>
+</html>

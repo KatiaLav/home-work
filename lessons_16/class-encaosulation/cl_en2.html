@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_16/css/style.css" />
+      <title>Class Encapsulation</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+         Створити клас TMoney для роботи з грошовими сумами. Сума повинна
+         зберігатися у вигляді доларового еквіваленту. Реалізувати методи
+         додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях,
+         та визначення курсу долара, при якому сума у гривнях збільшиться на
+         100. Курс долара зберігати в окремому полі.
+      </p>
+      <script>
+         "use strict"
+			class TMoney{
+				#courseDollar
+				#value
+				get CourseDollar(){
+					return this.#courseDollar
+				}
+				set CourseDollar(value){
+					if(value < 0) throw new Error ('Значення не можу бути від\'ємним.')
+					this.#courseDollar = value
+				}
+				get Value(){
+					return this.#value
+				}
+				set Value(sum){
+					if(sum === 0 || sum < 0) throw new Error('Значення не є дійсним')
+					this.#value = sum
+				}
+				constructor(courseDollar, value){
+					// опис поля
+					// ===================
+					this.CourseDollar = courseDollar
+					this.Value = value
+				}
+				// методи
+				// ===================
+				// сума у доларовому еквіваленті
+				getUserSumMoney(){
+					return this.Value / this.CourseDollar
+				}
+				// додавання грошей
+				getPlusMoney(sum){
+					let sumMoney = this.Value + sum
+					return Math.abs(sumMoney / this.CourseDollar)
+				}
+				// віднімання грошей
+				getMinusMoney(sum){
+					if(sum > this.Value) throw new Error('Недостатньо коштів')
+					else {
+						let sumMoney = this.Value - sum
+						return sumMoney / this.CourseDollar
+					}
+				}
+				// при якому курсі долара сума збільшиться на 100грн
+				getValueDollar(){
+					let increaseBy100 = 100
+					return  Math.floor(increaseBy100 / this.CourseDollar) + this.CourseDollar
+				}
+			}
+			const courseDollar = 39.90
+			let tMoney = new TMoney(courseDollar, 2000)
+			document.write(`Сума у долларовому еквіваленті: ${tMoney.getUserSumMoney().toFixed(3)}$ <br>`);
+			document.write(`Сума збільшилась, на рахунку зараз : ${tMoney.getPlusMoney(4000).toFixed(3)}$ <br>`);
+			document.write(`Сума зменшилась, на рахунку зараз : ${tMoney.getMinusMoney(1000).toFixed(3)}$ <br>`);
+			document.write(`Сума рахунку ${tMoney.Value}грн щоб сума збільшилась на 100 грн, курс долара повинен становити ${tMoney.getValueDollar().toFixed(3)}$  <br>`);
+			
+      </script>
+   </body>
+</html>
