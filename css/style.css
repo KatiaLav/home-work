@@ -41,11 +41,24 @@ body {
 	justify-content: center;
    align-items: center;
 }
+
+.page__link ul{
+	column-count: 3;
+	columns: 3 250px;
+	column-rule-style: solid;
+	column-rule-color: rgba(214, 199, 215, 0.984);;
+	column-rule-width: thin;
+
+}
+.page__link li{
+	padding-left: 30px;
+}
 .page__link:not(:last-child){
 	margin-bottom: 30px;
 }
 .page__link li:not(:last-child){
 	margin-bottom: 20px;
+	
 }
 .page__link a{
 	display: flex;
@@ -54,7 +67,7 @@ body {
 }
 .page__link a:hover{
 	color: rgb(231, 172, 213);
-	transform: scale(1.6);
+	transform: scale(1.3);
 	transition: all 0.4s ease 0s;
 }
 /* ----------------------------------------------------------------------- */
