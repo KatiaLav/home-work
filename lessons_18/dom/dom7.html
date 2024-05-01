@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_18/css/style.css" />
+		<style>
+			.block{
+				display: flex;
+				flex-direction: column;
+				padding: 10px;
+			}
+		</style>
+      <title>DOM</title>
+   </head>
+   <body>
+      <h4>Задача 7</h4>
+      <p>
+			Подорож складається з 3 етапів. На кожному етапі користувач може
+         вибрати один з видів транспорту (авто, автобус, літак -
+         випадаючий список), харчування (сніданок, обід, вечеря –
+         checkbоx) та одного з 3-х гідів(використати - radio buttons).
+         Ціни визначте самі. Підрахувати загальну вартість.
+		</p>
+		
+		<div class="block">
+			<div>
+				<label><h4>Вартість подорожі</h4>
+					<select id="transport">
+						<option value="4000">Авто</option>
+						<option value="2000">Автобус</option>
+						<option value="10000">Літак</option>
+					</select>
+				</label>
+			</div>
+			<hr>
+			<div>
+				<h4>Харчування</h4>
+				<label for="">Сніданок
+					<input value="300" type="checkbox">
+				</label>
+				<label for="">Обід
+					<input value="400" type="checkbox">
+				</label>
+				<label for="">Вечерря
+					<input value="600"  type="checkbox">
+				</label>
+			</div>
+			<hr>
+			<div>
+				<h4>Гід</h4>
+				<label for="input1">Іванов І.І.
+					<input id="input1" value="3000" name="noted" type="radio">
+				</label>
+				<label for="input2">Микуленко М.М
+					<input id="input2" value="3500" name="noted" type="radio">
+				</label>
+				<label for="input3">Пилипенко П.П.
+					<input id="input3" value="4000" name="noted" type="radio">
+				</label>
+			</div>
+			<div>
+				<button id="btnsum" type="button">Розрахувати вартість.</button>
+			</div>
+			<div>
+				Загальна вартість:
+				<span id="totalres"></span>
+			</div>
+		</div>
+      <script src="../js/js-7.js"></script>
+   </body>
+</html>
