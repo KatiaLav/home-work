@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_19/css/style.css" />
+      <style>
+			.snowflake{
+				position: absolute;
+				font-size: 60px;
+			}
+		</style>
+		<title>DOM #19</title>
+   </head>
+   <body>
+      <h4>Задача 7</h4>
+      <p>
+			Відобразити падаючий сніг. Сніжинка з’являється у верхній частині
+         екрану (top =0) і з випадковою швидкістю рухається вниз (у
+         setInterval викликати метод, у якому додавати крок до top). Як
+         тільки сніжинка досягає нижньої частини екрану (top>maxTop) вона
+         знову повинна з’явитись у верхній частині екрану (top=0).
+		</p>
+
+		<div class="snowflake__container"></div>
+
+      <script>
+         "use strict"
+			function snowflake(){
+				const containerSnow = document.createElement('div')
+				containerSnow.className = 'snowflake'
+				containerSnow.innerText = '⭐'
+				containerSnow.style.top = '0'
+				containerSnow.style.left = Math.random() * window.innerWidth + 'px'
+				document.querySelector('.snowflake__container').append(containerSnow)
+				
+				
+				
+				let topPositionSnowflake = 0
+				let maxTop = window.innerHeight
+				let speed = Math.random() * 3
+				
+				let snowflakeInterval = setInterval(() => {
+					topPositionSnowflake += speed
+					containerSnow.style.top = topPositionSnowflake + 'px'
+					if(topPositionSnowflake > maxTop){
+						clearInterval(snowflakeInterval)
+						// containerSnow.style.top = '0'
+						snowflake.remove()
+						snowflake()
+					}
+				},40)
+			}
+
+			setInterval(snowflake, 2000)
+      </script>
+   </body>
+</html>

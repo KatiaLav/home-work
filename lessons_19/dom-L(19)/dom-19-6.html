@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <style>
+			.sportsman{
+				display: flex;
+				justify-content: space-between;
+				border: 2px solid grey;
+				padding: 15px;
+				gap: 20px;
+			}
+			.total__list{
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 50%;
+			}
+			.selected__list{
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 50%;
+			}
+			/*------------------------------ стрілки-кнопки */
+			.arrow-green::before{
+				content: '\1F846';
+				color: rgb(30, 239, 30);
+				cursor: pointer;
+			}
+			.arrow-red::before{
+				content: '\1F844';
+				color: red;
+				cursor: pointer;
+			}
+			/* ------------------------------------------- */
+			.member1,
+			.member2{
+				border: 2px solid orange;
+				padding: 10px;
+			}
+			.block{
+				display: flex;
+				justify-content: space-between;
+				gap: 50px;
+				align-items: center;
+				padding: 10px;
+				border: 2px solid rgb(209, 183, 135);
+			}
+		</style>
+		<title>DOM</title>
+   </head>
+   <body>
+      <h4>Задача 6</h4>
+      <p>
+         Дано список спортсменів. Потрібно сформувати список тих, які будуть
+         брати участь у змаганні. При цьому є два стовпці. В одному відображені
+         всі спортсмени, в іншому – список тих, хто був вибраний. При натисканні
+         на зелену стрілку спортсмен переміщається у список для змагань. При
+         натисканні на червону стрілку спортсмен переміщається у загальний
+         список.
+      </p>
+
+		<div class="sportsman">
+			<div class="total__list">
+				<h4>Загальний список</h4>
+				<div class="member1"></div>
+			</div>
+			<div class="selected__list">
+				<h4>Обрані для змагання</h4>
+				<div class="member2"></div>
+			</div>
+		</div>
+		<script>
+			"use strict"
+			class Sportsman{
+				constructor(name, columnList){
+					this.name = name;
+					this.el = this.render(columnList)
+				}
+				getSportsmanList(){
+					const total = this.el
+					console.log(total);
+					const btnArrowGreen = event.currentTarget
+					console.log(btnArrowGreen);
+
+					btnArrowGreen.classList.remove('arrow-red')
+					btnArrowGreen.classList.add('arrow-green')
+					btnArrowGreen.addEventListener('click', this.addSportsmanList.bind(this))
+					// btnArrowGreen.onclick = (event) => this.addSportsmanList()
+					const contTotalList = document.querySelector('.member1')
+					contTotalList.appendChild(total)
+				}
+
+				addSportsmanList(){
+					const selected = this.el
+					console.log(selected);
+					const btnArrowRed = event.currentTarget
+					console.log(btnArrowRed);
+
+					btnArrowRed.classList.remove('arrow-green')
+					btnArrowRed.classList.add('arrow-red')
+					btnArrowRed.addEventListener('click', this.getSportsmanList.bind(this))
+					// btnArrowRed.onclick = (event) => this.getSportsmanList()
+					const contSelectList = document.querySelector('.member2')
+					contSelectList.appendChild(selected)
+				}
+				
+				render(columnList){
+					const listItem = document.createElement('div')
+					listItem.className = 'block'
+					const contTotalList = document.querySelector('.member1')
+					contTotalList.append(listItem)
+
+					const nameItem = document.createElement('div')
+					nameItem.innerText = this.name
+					listItem.append(nameItem)
+
+					const btnArrowRight = document.createElement('a')
+					btnArrowRight.className = 'arrow-green'
+					listItem.append(btnArrowRight)
+					btnArrowRight.addEventListener('click', this.addSportsmanList.bind(this))
+					// btnArrowRight.onclick = (event) => this.addSportsmanList()
+
+					return listItem
+				}
+			}
+
+			onload = function(){
+				const name1 = new Sportsman('John Depp', 'total__list')
+				const name2 = new Sportsman('Sara Wik', 'total__list')
+				const name3 = new Sportsman('Den Miro', 'total__list')
+				const name4 = new Sportsman('Alan Woo', 'total__list')
+				const name5 = new Sportsman('Olga Sich', 'total__list')
+				const name6 = new Sportsman('Ivan Hal', 'total__list')
+			}
+		</script>
+   </body>
+</html>

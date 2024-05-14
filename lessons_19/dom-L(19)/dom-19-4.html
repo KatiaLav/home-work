@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_19/css/style.css" />
+		<style>
+			table{
+				margin: 20px;
+			}
+		</style>
+      <title>DOM #19</title>
+   </head>
+   <body>
+      <h4>Задача 4</h4>
+      <p>
+			Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо
+         відбувається клік на якійсь із клітинок, то до відповідної
+         таблиці додається червона рамка (спробуйте додати можливість
+         відображення кількості кліків біля назви таблиці з використанням
+         відповідно доданого для цього атрибута).
+		</p>
+      <script>
+         "use strict"
+			// згенероване випадкове число
+			function generationNumOfTable() {
+				return Math.floor(Math.random() * 100) + 1
+			}
+
+			//генерую таблицю
+			function getTable() {
+				const tbl = document.createElement('table')
+				tbl.setAttribute('id', 'blockTable')
+				for (let r = 0; r < 3; r++) {
+					const tr = document.createElement('tr')
+					for (let c = 0; c < 3; c++) {
+						const td = document.createElement('td')
+						td.innerText = generationNumOfTable()
+						tr.append(td)
+					}
+					tbl.append(tr)
+				}
+				document.body.append(tbl)
+			}
+			// вивести 3 таблиці
+			for (let i = 0; i <3; i++) {
+				getTable()
+				// -------------------
+				const tab = document.querySelectorAll('table')
+				for (const element of tab) {
+					element.onclick = borderTable
+				}
+			}
+		
+			// бордер червоний
+			function borderTable() {
+				let clickedTab = this.closest('table')
+				clickedTab.style.border = '5px solid red'
+				// -------------------
+				// кількість кліків
+				// не змогла сумувати кліки, заплуталась
+				let prevCountClick = 0
+				if(clickedTab){
+					prevCountClick=+1
+				}
+				const blockCont = document.createElement('div')
+				const content = document.createElement('h4')
+				content.innerText = `Кількість кліків: ${prevCountClick}`
+				blockCont.append(content)
+				clickedTab.after(blockCont)
+			}
+      </script>
+   </body>
+</html>

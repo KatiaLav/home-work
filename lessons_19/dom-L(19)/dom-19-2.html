@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_19/css/style.css" />
+		<style>
+			.block-form{
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+      <title>DOM #19</title>
+   </head>
+   <body>
+      <h4>Задача 2</h4>
+      <p>
+			Дано 5 елементів input. При введенні значення у якийсь із них
+         необхідно автоматично заповнювати інші (усі попередні у спадному
+         порядку(кожен попередній має значення на 1 менше за наступний),
+         усі наступні на 1 більше (кожен наступне на 1 більше за
+         попереднього)
+		</p>
+		<div class="block-form">
+			<label>Value 1
+				<input type="number">
+			</label>
+			<label>Value 2
+				<input type="number">
+			</label>
+			<label>Value 3
+				<input type="number">
+			</label>
+			<label>Value 4
+				<input type="number">
+			</label>
+			<label>Value 5
+				<input type="number">
+			</label>
+		</div>
+      <script>
+         "use strict"
+			document.addEventListener('input', function(event) {
+				let inputValue = event.target.parentElement
+				while (inputValue.previousElementSibling !== null) {
+					inputValue.previousElementSibling.firstElementChild.value = parseFloat(inputValue.firstElementChild.value) - 1
+					inputValue = inputValue.previousElementSibling
+				}
+				while (inputValue.nextElementSibling !== null) {
+					inputValue.nextElementSibling.firstElementChild.value = parseFloat(inputValue.firstElementChild.value) + 1
+					inputValue = inputValue.nextElementSibling
+				}
+			})
+      </script>
+   </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/lessons_19/css/style.css" />
+		<style>
+			li:hover{
+				transform: none;
+			}
+			.list-block{
+				display: flex;
+				gap: 20px;
+			}
+		</style>
+      <title>DOM #19</title>
+   </head>
+   <body>
+      <h4>Задача 3</h4>
+      <p>
+			Дано 5 випадковим чином згенерованих нумерованих списків з
+         рандомними числами (кількість елементів у списку випадкова від 1
+         до 10, елементи випадкові – від 1 до 100). При натисненні на
+         кнопку нумеровані списки з парною кількістю елементів зафарбувати
+         у зелений колір, інші у червоний.
+		</p>
+		
+		<div class="list-block" id="list"></div>
+		<button type="button" id="btn">Go</button>
+      <script>
+         "use strict"
+			// функція для списку
+			function ulList() {
+				const randomNumOfLi =  Math.floor(Math.random() * 10) + 1
+
+				const olList = document.createElement('ol')
+				for (let i = 0; i < randomNumOfLi; i++) {
+					const liItem = document.createElement('li')
+					//  рандомне число для елементів
+					const randomLi = Math.floor(Math.random() * 100) + 1
+					liItem.innerText = randomLi
+					olList.append(liItem)
+				}
+				return olList
+			}
+
+			// створити 5 списків
+			const blockList = document.querySelector('div')
+				for (let i = 0; i < 5; i++) {
+					let li = ulList()
+					li.style.border = '2px solid grey'
+					li.style.width = '30%'
+					blockList.append(li)
+				}
+			
+			// при натискані на кнопку
+			const btn = document.getElementById('btn')
+			btn.addEventListener('click', event =>{
+				const olList = document.querySelectorAll('ol')
+				for (const el of olList) {
+					if(el.children.length % 2 === 0){
+						el.style.color = 'rgb(26, 206, 26)'
+					}
+					else el.style.color = 'red'
+				}
+			})
+      </script>
+   </body>
+</html>

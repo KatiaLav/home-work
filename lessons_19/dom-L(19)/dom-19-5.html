@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/lessons_19/css/reset.css">
+      <link rel="stylesheet" href="/lessons_19/css/style.css" />
+		<style>
+			.container {
+				max-width: 100%;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				gap: 15px;
+				
+			}
+			.card {
+				background-color: rgba(93, 108, 244, 0.47);
+				padding: 20px;
+			}
+			.card__top {
+				display:inline-flex;
+				padding: 15px;
+				border-radius: 24px;
+				background-color: orange;
+				margin-bottom: 8px;
+			}
+			
+			.card__img {
+				width: 400px;
+				margin-bottom: 8px;
+			}
+			.card__img img{
+				max-width: 100%;
+				object-fit: cover;
+			}
+			.card__info {
+				display: flex;
+				flex-direction: column;
+				font-family: sans-serif;
+				font-weight: 700;
+				font-size: 36px;
+				width: 400px;
+				flex-wrap: wrap;
+			}
+			.info-card__title {
+				display: flex;
+				/* flex-wrap: wrap; */
+				margin-bottom: 8px;
+			}
+			.info-card__price {
+				color: red;
+			}
+			.active{
+				outline: 8px solid rgb(10, 136, 10);
+			}
+		</style>
+      <title>DOM #19</title>
+   </head>
+   <body>
+      <div>
+         <h4>Задача 5</h4>
+         <p>
+            Відображаємо картки товарів, які користувач може вибирати. Вибраний
+            товар має зелену рамку (при кліку робити toogle з класом вибраного
+            елемента)
+         </p>
+      </div>
+		<hr>
+		<hr>
+		<section class="container">
+			<article  class="card__container card">
+				<div class="card__top">Топ продаж</div>
+				<div class="card__img">
+					<img src="../image/1.jpg" alt="Laptop">
+				</div>
+				<div class="card__info info-card">
+					<div class="info-card__title">Ноутбук Acer Aspire</div>
+					<div class="info-card__price">30000 $</div>
+				</div>
+			</article>
+			<article  class="card__container card">
+				<div class="card__top">Топ продаж</div>
+				<div class="card__img">
+					<img src="../image/2.jpg" alt="Laptop">
+				</div>
+				<div class="card__info info-card">
+					<div class="info-card__title">Ноутбук Acer Aspire</div>
+					<div class="info-card__price">30000$</div>
+				</div>
+			</article>
+			<article  class="card__container card">
+				<div class="card__top">Топ продаж</div>
+				<div class="card__img">
+					<img src="../image/3.jpg" alt="Laptop">
+				</div>
+				<div class="card__info info-card">
+					<div class="info-card__title">Ноутбук Acer Aspire</div>
+					<div class="info-card__price">30000$</div>
+				</div>
+			</article>
+			<article  class="card__container card">
+				<div class="card__top">Топ продаж</div>
+				<div class="card__img">
+					<img src="../image/4.jpg" alt="Laptop">
+				</div>
+				<div class="card__info info-card">
+					<div class="info-card__title">Ноутбук Acer Aspire</div>
+					<div class="info-card__price">30000$</div>
+				</div>
+			</article>
+		</section>
+
+      <script>
+         "use strict"
+				function cardActive(e){
+					const cardContainer = e.target.closest('.card__container')
+					// console.log(cardContainer);
+					if(cardContainer.tagName === 'ARTICLE'){
+						cardContainer.classList.toggle('active')
+					}
+				}
+		
+				window.onload = function(){
+					document.querySelector('.container').onclick = cardActive 
+				}
+      </script>
+   </body>
+</html>
